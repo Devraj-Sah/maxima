@@ -1,0 +1,692 @@
+{% extends 'layout/master.html' %}
+{%load custom_tags %}
+{% load mathfilters %}
+{% block contents %}
+            <!--banner start-->
+            <div class="breadcrumb">
+                <div class="container">
+                  <div class="breadcrumb-inner">
+                    <ul class="list-inline list-unstyled">
+                      <li><a href="/">Home</a></li>
+                      <li class='active'>New Arrivals</li>
+                    </ul>
+                  </div>
+                  <!-- /.breadcrumb-inner -->
+                </div>
+                <!-- /.container -->
+              </div>
+            <div class="body-content outer-top-xs">
+                <div class='container'>
+                  <div class='row'>
+                    <div class='col-xs-12 col-sm-12 col-md-3 sidebar'>
+                      <!-- ================================== TOP NAVIGATION ================================== -->
+                      <div class="side-menu animate-dropdown outer-bottom-xs">
+                        <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
+                        <nav class="yamm megamenu-horizontal">
+                          <ul class="nav">
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                  class="icon fa fa-smile" aria-hidden="true"></i>Neo's Specials!</a>
+                              <ul class="dropdown-menu mega-menu">
+                                <li class="yamm-content">
+                                  <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                      <ul class="links list-unstyled">
+                                        <li><a href="brand.html">Gaming</a></li>
+                                        <li><a href="brand.html">Laptop Skins</a></li>
+                                        <li><a href="brand.html">Apple</a></li>
+                                        <li><a href="brand.html">Dell</a></li>
+                                        <li><a href="brand.html">Lenovo</a></li>
+                                        <li><a href="brand.html">Microsoft</a></li>
+                                        <li><a href="brand.html">Asus</a></li>
+                                        <li><a href="brand.html">Adapters</a></li>
+                                        <li><a href="brand.html">Batteries</a></li>
+                                        <li><a href="brand.html">Cooling Pads</a></li>
+                                      </ul>
+                                    </div>
+                                    <!-- /.col -->
+                                  </div>
+                                  <!-- /.row -->
+                                </li>
+                                <!-- /.yamm-content -->
+                              </ul>
+                              <!-- /.dropdown-menu -->
+                            </li>
+                            <!-- /.menu-item -->
+            
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                  class="fa fa-b"></i> Shop By
+                                Brand</a>
+                              <!-- ================================== MEGAMENU VERTICAL ================================== -->
+                              <ul class="dropdown-menu mega-menu">
+                                <li class="yamm-content">
+                                  <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-lg-4">
+                                      <ul>
+                                        <li><a href="brand.html">Gaming</a></li>
+                                        <li><a href="brand.html">Laptop Skins</a></li>
+                                        <li><a href="brand.html">Apple</a></li>
+                                        <li><a href="brand.html">Dell</a></li>
+                                        <li><a href="brand.html">Lenovo</a></li>
+                                        <li><a href="brand.html">Microsoft</a></li>
+                                        <li><a href="brand.html">Asus</a></li>
+                                        <li><a href="brand.html">Adapters</a></li>
+                                        <li><a href="brand.html">Batteries</a></li>
+                                        <li><a href="brand.html">Cooling Pads</a></li>
+                                      </ul>
+                                    </div>
+                                    <div class="dropdown-banner-holder"> <a href="#"><img alt=""
+                                          src="assets/images/banners/banner-side.png" /></a> </div>
+                                  </div>
+                                  <!-- /.row -->
+                                </li>
+                                <!-- /.yamm-content -->
+                              </ul>
+                              <!-- /.dropdown-menu -->
+                              <!-- ================================== MEGAMENU VERTICAL ================================== -->
+                            </li>
+                            <!-- /.menu-item -->
+            
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                  class="icon fa fa-laptop" aria-hidden="true"></i>Laptops $ Computers</a>
+                              <ul class="dropdown-menu mega-menu">
+                                <li class="yamm-content">
+                                  <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                      <ul class="links list-unstyled">
+                                        <li><a href="brand.html">Gaming</a></li>
+                                        <li><a href="brand.html">Laptop Skins</a></li>
+                                        <li><a href="brand.html">Apple</a></li>
+                                        <li><a href="brand.html">Dell</a></li>
+                                        <li><a href="brand.html">Lenovo</a></li>
+                                        <li><a href="brand.html">Microsoft</a></li>
+                                        <li><a href="brand.html">Asus</a></li>
+                                        <li><a href="brand.html">Adapters</a></li>
+                                        <li><a href="brand.html">Batteries</a></li>
+                                        <li><a href="brand.html">Cooling Pads</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <!-- /.row -->
+                                </li>
+                                <!-- /.yamm-content -->
+                              </ul>
+                              <!-- /.dropdown-menu -->
+                            </li>
+                            <!-- /.menu-item -->
+            
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                  class="icon fa fa-mobile"></i>Mobile | Tablets</a>
+                              <ul class="dropdown-menu mega-menu">
+                                <li class="yamm-content">
+                                  <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-lg-4">
+                                      <ul>
+                                        <li><a href="brand.html">Gaming</a></li>
+                                        <li><a href="brand.html">Laptop Skins</a></li>
+                                        <li><a href="brand.html">Apple</a></li>
+                                        <li><a href="brand.html">Dell</a></li>
+                                        <li><a href="brand.html">Lenovo</a></li>
+                                        <li><a href="brand.html">Microsoft</a></li>
+                                        <li><a href="brand.html">Asus</a></li>
+                                        <li><a href="brand.html">Adapters</a></li>
+                                        <li><a href="brand.html">Batteries</a></li>
+                                        <li><a href="brand.html">Cooling Pads</a></li>
+                                      </ul>
+                                    </div>
+            
+                                    <div class="dropdown-banner-holder"> <a href="#"><img alt=""
+                                          src="assets/images/banners/banner-side.png" /></a> </div>
+                                  </div>
+                                  <!-- /.row -->
+                                </li>
+                                <!-- /.yamm-content -->
+                              </ul>
+                              <!-- /.dropdown-menu -->
+                            </li>
+                            <!-- /.menu-item -->
+            
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                  class="icon fa fa-camera"></i>Camera</a>
+                              <ul class="dropdown-menu mega-menu">
+                                <li class="yamm-content">
+                                  <div class="row">
+                                    <div class="col-sm-12 col-md-3">
+                                      <ul class="links list-unstyled">
+                                        <li><a href="brand.html">Gaming</a></li>
+                                        <li><a href="brand.html">Laptop Skins</a></li>
+                                        <li><a href="brand.html">Apple</a></li>
+                                        <li><a href="brand.html">Dell</a></li>
+                                        <li><a href="brand.html">Lenovo</a></li>
+                                        <li><a href="brand.html">Microsoft</a></li>
+                                        <li><a href="brand.html">Asus</a></li>
+                                        <li><a href="brand.html">Adapters</a></li>
+                                        <li><a href="brand.html">Batteries</a></li>
+                                        <li><a href="brand.html">Cooling Pads</a></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <!-- /.row -->
+                                </li>
+                                <!-- /.yamm-content -->
+                              </ul>
+                              <!-- /.dropdown-menu -->
+                            </li>
+                            <!-- /.menu-item -->
+            
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                  class="icon fa fa-headphones"></i>Audio | Headphones</a>
+                              <ul class="dropdown-menu mega-menu">
+                                <li class="yamm-content">
+                                  <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-lg-4">
+                                      <ul>
+                                        <li><a href="brand.html">Gaming</a></li>
+                                        <li><a href="brand.html">Laptop Skins</a></li>
+                                        <li><a href="brand.html">Apple</a></li>
+                                        <li><a href="brand.html">Dell</a></li>
+                                        <li><a href="brand.html">Lenovo</a></li>
+                                        <li><a href="brand.html">Microsoft</a></li>
+                                        <li><a href="brand.html">Asus</a></li>
+                                        <li><a href="brand.html">Adapters</a></li>
+                                        <li><a href="brand.html">Batteries</a></li>
+                                        <li><a href="brand.html">Cooling Pads</a></li>
+                                      </ul>
+                                    </div>
+                                    <div class="dropdown-banner-holder"> <a href="#"><img alt=""
+                                          src="assets/images/banners/banner-side.png" /></a> </div>
+                                  </div>
+                                  <!-- /.row -->
+                                </li>
+                                <!-- /.yamm-content -->
+                              </ul>
+                              <!-- /.dropdown-menu -->
+                            </li>
+                            <!-- /.menu-item -->
+            
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                  class="icon fa fa-video"></i>Video Conferering</a>
+                              <!-- /.dropdown-menu --> </li>
+                            <!-- /.menu-item -->
+            
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                  class="fa fa-watch-smart"></i>Fitness | Smart Wtach</a>
+                              <!-- ================================== MEGAMENU VERTICAL ================================== -->
+                              <!-- /.dropdown-menu -->
+                              <!-- ================================== MEGAMENU VERTICAL ================================== -->
+                            </li>
+                            <!-- /.menu-item -->
+            
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                  class="icon fa fa-envira"></i>Car Accessories</a>
+                              <!-- /.dropdown-menu --> </li>
+                            <!-- /.menu-item -->
+            
+                          </ul>
+                          <!-- /.nav -->
+                        </nav>
+                        <!-- /.megamenu-horizontal -->
+                      </div>
+                      <!-- /.side-menu -->
+                      <!-- ================================== TOP NAVIGATION : END ================================== -->
+                      <div class="sidebar-module-container">
+                        <div class="sidebar-filter">
+                          <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
+                          <div class="sidebar-widget">
+                            <h3 class="section-title">Shop by</h3>
+                            <div class="widget-header">
+                              <h4 class="widget-title">Category</h4>
+                            </div>
+                            <div class="sidebar-widget-body">
+                              <div class="accordion">
+                                {% for cat in Categories %}
+                                    <div class="accordion-group">
+                                    <div class="accordion-heading"> <a href="#collapse{{forloop.counter}}" data-toggle="collapse"
+                                        class="accordion-toggle collapsed"> {{cat.caption}} </a> </div>
+                                    <!-- /.accordion-heading -->
+                                    <div class="accordion-body collapse" id="collapse{{forloop.counter}}" style="height: 0px;">
+                                        <div class="accordion-inner">
+                                        <ul>
+                                            {% for i in cat.product.all %}
+                                                <li><a href="#">{{i.name}}</a></li>
+                                            {% endfor %}
+                                            
+                                        </ul>
+                                        </div>
+                                        <!-- /.accordion-inner -->
+                                    </div>
+                                    <!-- /.accordion-body -->
+                                    </div>
+                                    <!-- /.accordion-group -->
+                                {% endfor %}
+
+                              </div>
+                              <!-- /.accordion -->
+                            </div>
+                            <!-- /.sidebar-widget-body -->
+                          </div>
+                          <!-- /.sidebar-widget -->
+                          <!-- ============================================== SIDEBAR CATEGORY : END ============================================== -->
+            
+                          <!-- ============================================== PRICE SILDER============================================== -->
+                          <div class="sidebar-widget">
+                            <div class="widget-header">
+                              <h4 class="widget-title">Price Slider</h4>
+                            </div>
+                            <div class="sidebar-widget-body m-t-10">
+                              <div class="price-range-holder"> <span class="min-max"> <span class="pull-left">$200.00</span> <span
+                                    class="pull-right">$800.00</span> </span>
+                                <input type="text" id="amount" style="border:0; color:#666666; font-weight:bold;text-align:center;">
+                                <input type="text" class="price-slider" value="">
+                              </div>
+                              <!-- /.price-range-holder -->
+                              <a href="#" class="lnk btn btn-primary">Show Now</a>
+                            </div>
+                            <!-- /.sidebar-widget-body -->
+                          </div>
+                          <!-- /.sidebar-widget -->
+                          <!-- ============================================== PRICE SILDER : END ============================================== -->
+                          <!-- ============================================== MANUFACTURES============================================== -->
+                          {% comment %} <div class="sidebar-widget">
+                            <div class="widget-header">
+                              <h4 class="widget-title">Shop by Brand</h4>
+                            </div>
+                            <div class="sidebar-widget-body">
+                              <ul class="list">
+                                <li><a href="#">Apple</a></li>
+                                <li><a href="#">lenovo</a></li>
+                                <li><a href="#">Dell</a></li>
+                                <li><a href="#">Microsoft</a></li>
+                                <li><a href="#">Asus</a></li>
+                                <li><a href="#">Other Brand</a></li>
+                              </ul>
+                              <!--<a href="#" class="lnk btn btn-primary">Show Now</a>-->
+                            </div>
+                            <!-- /.sidebar-widget-body -->
+                          </div> {% endcomment %}
+                          <!-- /.sidebar-widget -->
+                          <!-- ============================================== MANUFACTURES: END ============================================== -->
+                          <!-- ============================================== COLOR============================================== -->
+                          {% comment %} <div class="sidebar-widget">
+                                <div class="widget-header">
+                                <h4 class="widget-title">Colors</h4>
+                                </div>
+                                <div class="sidebar-widget-body">
+                                <ul class="list">
+                                    <li><a href="#">Red</a></li>
+                                    <li><a href="#">Blue</a></li>
+                                    <li><a href="#">Yellow</a></li>
+                                    <li><a href="#">Pink</a></li>
+                                    <li><a href="#">Brown</a></li>
+                                    <li><a href="#">Teal</a></li>
+                                </ul>
+                                </div>
+                            <!-- /.sidebar-widget-body -->
+                          </div> {% endcomment %}
+                          <!-- /.sidebar-widget -->
+                          <!-- ============================================== COLOR: END ============================================== -->
+                          <!-- /.sidebar-widget -->
+                          <!-- /.Testimonials -->
+                          <div class="sidebar-widget  outer-top-vs" style="margin-bottom:20px;">
+                            <div id="advertisement" class="advertisement">
+                                {% for cus in customers %}
+                                <div class="item">
+                                  <div class="avatar"><img src="{{cus.banner_image1.url}}" alt="Image"></div>
+                                  <div class="testimonials">{{cus.long_contents|safe}}</div>
+                                  <div class="clients_author">{{cus.name}} <span>{{cus.caption}}</span> </div>
+                                  <!-- /.container-fluid -->
+                                </div>
+                              {% endfor %}
+            
+                            </div>
+                            <!-- /.owl-carousel -->
+                          </div>
+            
+                          <!-- ============================================== Testimonials: END ============================================== -->
+                        </div>
+                        <!-- /.sidebar-filter -->
+                      </div>
+                      <!-- /.sidebar-module-container -->
+                    </div>
+                    <!-- /.sidebar -->
+                    <div class="col-xs-12 col-sm-12 col-md-9 rht-col">
+                      <!-- ========================================== SECTION – HERO ========================================= -->
+            
+                      <div id="category" class="category-carousel hidden-xs">
+                        <div class="item">
+                          <div class="image"> <img src="{{page_detail.banner_image1.url}}" alt="" class="img-responsive">
+                          </div>
+                          <div class="container-fluid">
+                            <div class="caption vertical-top text-left">
+                              {% comment %} <div class="big-text"> Big Sale </div>
+                              <div class="excerpt hidden-sm hidden-md"> Save up to 49% off </div> {% endcomment %}
+                              {{page_detail.long_contents|safe}}
+                              <div class="excerpt-normal hidden-sm hidden-md"> {{page_detail.short_description}} </div>
+                              <!-- <div class="buy-btn"><a href="#" class="lnk btn btn-primary">Show Now</a></div> -->
+                            </div>
+                            <!-- /.caption -->
+                          </div>
+                          <!-- /.container-fluid -->
+                        </div>
+                      </div>
+            
+            
+                      <div class="clearfix filters-container m-t-10">
+                        <div class="row">
+                          <div class="col col-sm-6 col-md-3 col-lg-3 col-xs-6">
+                            <div class="filter-tabs">
+                              <ul id="filter-tabs" class="nav nav-tabs nav-tab-box nav-tab-fa-icon">
+                                <li class="active"> <a data-toggle="tab" href="#grid-container"><i
+                                      class="icon fa fa-th-large"></i>Grid</a> </li>
+                                <li><a data-toggle="tab" href="#list-container"><i class="icon fa fa-bars"></i>List</a></li>
+                              </ul>
+                            </div>
+                            <!-- /.filter-tabs -->
+                          </div>
+                          <!-- /.col -->
+                          <div class="col col-sm-12 col-md-5 col-lg-5 hidden-sm">
+                            <div class="col col-sm-6 col-md-6 no-padding">
+                              <div class="lbl-cnt"> <span class="lbl">Sort by</span>
+                                <div class="fld inline">
+                                  <div class="dropdown dropdown-small dropdown-med dropdown-white inline">
+                                    <button data-toggle="dropdown" type="button" class="btn dropdown-toggle"> Position <span
+                                        class="caret"></span> </button>
+                                    <ul role="menu" class="dropdown-menu">
+                                      <li role="presentation"><a href="#">position</a></li>
+                                      <li role="presentation"><a href="#">Price:Lowest first</a></li>
+                                      <li role="presentation"><a href="#">Price:HIghest first</a></li>
+                                      <li role="presentation"><a href="#">Product Name:A to Z</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <!-- /.fld -->
+                              </div>
+                              <!-- /.lbl-cnt -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col col-sm-6 col-md-6 no-padding hidden-sm hidden-md">
+                              <div class="lbl-cnt"> <span class="lbl">Show</span>
+                                <div class="fld inline">
+                                  <div class="dropdown dropdown-small dropdown-med dropdown-white inline">
+                                    <button data-toggle="dropdown" type="button" class="btn dropdown-toggle"> 1 <span
+                                        class="caret"></span> </button>
+                                    <ul role="menu" class="dropdown-menu">
+                                      <li role="presentation"><a href="#">1</a></li>
+                                      <li role="presentation"><a href="#">2</a></li>
+                                      <li role="presentation"><a href="#">3</a></li>
+                                      <li role="presentation"><a href="#">4</a></li>
+                                      <li role="presentation"><a href="#">5</a></li>
+                                      <li role="presentation"><a href="#">6</a></li>
+                                      <li role="presentation"><a href="#">7</a></li>
+                                      <li role="presentation"><a href="#">8</a></li>
+                                      <li role="presentation"><a href="#">9</a></li>
+                                      <li role="presentation"><a href="#">10</a></li>
+                                    </ul>
+                                  </div>
+                                </div>
+                                <!-- /.fld -->
+                              </div>
+                              <!-- /.lbl-cnt -->
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <!-- /.col -->
+                          <div class="col col-sm-6 col-md-4 col-xs-6 col-lg-4 text-right">
+                                <div class="pagination-container">
+                                <ul class="list-inline list-unstyled">
+                                    <li class="prev"><a href="{% if product.has_previous %}?page={{product.previous_page_number}}{% else %}#{% endif %}"><i class="fa fa-angle-left"></i></a></li>
+                                    {% if product.number > 4 %}
+                                        <li>
+                                            <a href="?page=1">1</a>
+                                        </li> 
+                                        <li><a href="#"> . . . </a></li>
+                                    {% endif %}
+                                    {% for i in product.paginator.num_pages|times:product.number %} 
+                                        {% if forloop.counter < 6 %}
+                                            <li>
+                                                <a href="?page={{i}}">{{i}}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}            
+                                    {% if product.number < product.paginator.num_pages|sub:4  %}
+                                    <li><a href="#"> . . . </a></li>
+                                    {% endif %} 
+                        
+                                    <li><a href="?page={{product.paginator.num_pages}}">{{product.paginator.num_pages}}</a>
+                                    </li>
+                                    <li class="next"><a href="{% if product.has_next %}?page={{product.next_page_number}}{% else %}#{% endif %}"><i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                                <!-- /.list-inline -->
+                                </div>
+                                <!-- /.pagination-container -->
+                            </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                      </div>
+                      <div class="search-result-container ">
+                        <div id="myTabContent" class="tab-content category-list">
+                          <div class="tab-pane active " id="grid-container">
+                            <div class="category-product">
+                              <div class="row">
+                                {% for product1 in product %}
+                                    <div class="col-sm-6 col-md-4 col-lg-2">
+                                    <div class="item">
+                                        <div class="products">
+                                        <div class="product">
+                                            <div class="product-image">
+                                            <div class="image">
+                                                <a href="#">
+                                                <img src="{{product1.image1.url}}" alt="">
+                                                <img src="{{product1.image2.url}}" alt="" class="hover-image">
+                                                </a>
+                                            </div>
+                                            <!-- /.image -->
+                
+                                            <div class="tag new"><span>new</span></div>
+                                            </div>
+                                            <!-- /.product-image -->
+                
+                                            <div class="product-info text-left">
+                                            <h3 class="name"><a href="detail.html">{{product1.name}}</a></h3>
+                                            <div class="rating rateit-small"></div>
+                                            <div class="description"></div>
+                                            
+                                            <div class="product-price"> <span class="price"> Rs.{{ product1.price|sub:product1.discount }} </span> 
+                                                {% if product1.discount != "0" %}
+                                                <span class="price-before-discount">Rs.{{ product1.price }}</span>
+                                                {% endif %}
+                                              </div>
+                
+                                            </div>
+                                            <!-- /.product-info -->
+                                            <div class="cart clearfix animate-effect">
+                                            <div class="action">
+                                                <ul class="list-unstyled">
+                                                <li class="add-cart-button btn-group">
+                                                    <a href="detail.html">
+                                                    <button data-toggle="tooltip" class="btn btn-primary icon" type="button"
+                                                        title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
+                                                    </a>
+                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                </li>
+                                                <li class="lnk wishlist"> <a class="add-to-cart" href="my-wishlist.html"
+                                                    title="Wishlist">
+                                                    <i class="icon fa fa-heart"></i> </a> </li>
+                                                <li class="lnk"> <a class="add-to-cart" href="#" title="link"> <i
+                                                        class="fa fa-link"></i> </a> </li>
+                                                </ul>
+                                            </div>
+                                            <!-- /.action -->
+                                            </div>
+                                            <!-- /.cart -->
+                                        </div>
+                                        <!-- /.product -->
+                
+                                        </div>
+                                        <!-- /.products -->
+                                    </div>
+                                    </div>
+                                {% endfor %}
+                                <!-- /.item -->
+            
+                              </div>
+                              <!-- /.row -->
+                            </div>
+                            <!-- /.category-product -->
+            
+                          </div>
+                          <!-- /.tab-pane -->
+            
+                          <div class="tab-pane " id="list-container">
+                            <div class="category-product">
+                                {% for product1 in product %}
+
+                                    <div class="category-product-inner">
+                                        <div class="products">
+                                        <div class="product-list product">
+                                            <div class="row product-list-row">
+                                            <div class="col col-sm-3 col-lg-3">
+                                                <div class="product-image">
+                                                <div class="image"> <img src="{{product1.image1.url}}" alt="" style="padding-top:50%;"> </div>
+                                                </div>
+                                                <!-- /.product-image -->
+                                            </div>
+                                            <!-- /.col -->
+                                            <div class="col col-sm-9 col-lg-9">
+                                                <div class="product-info">
+                                                <h3 class="name"><a href="detail.html">{{product1.name}}</a></h3>
+                                                <div class="rating rateit-small"></div>
+                                                <div class="product-price"> <span class="price"> Rs.{{ product1.price|sub:product1.discount }} </span> 
+                                                    {% if product1.discount != "0" %}
+                                                    <span class="price-before-discount">Rs.{{ product1.price }}</span>
+                                                    {% endif %}
+                                                  </div>
+                                                
+                                                <div class="description m-t-10">
+                                                    {{product1.discription|safe}}
+                                                </div>
+                                                <div class="cart clearfix animate-effect">
+                                                    <div class="action">
+                                                    <ul class="list-unstyled">
+                                                        <li class="add-cart-button btn-group">
+                                                        <a href="detail.html">
+                                                            <button data-toggle="tooltip" class="btn btn-primary icon" type="button"
+                                                            title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
+                                                        </a>
+                                                        <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                        </li>
+                                                        <li class="lnk wishlist"> <a class="add-to-cart" href="my-wishlist.html"
+                                                            title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                                        <li class="lnk"> <a class="add-to-cart" href="#" title="link"> <i
+                                                            class="fa fa-link"></i> </a> </li>
+                                                    </ul>
+                                                    </div>
+                                                    <!-- /.action -->
+                                                </div>
+                                                <!-- /.cart -->
+                    
+                                                </div>
+                                                <!-- /.product-info -->
+                                            </div>
+                                            <!-- /.col -->
+                                            </div>
+                                            <!-- /.product-list-row -->
+                                            <div class="tag new"><span>new</span></div>
+                                        </div>
+                                        <!-- /.product-list -->
+                                        </div>
+                                        <!-- /.products -->
+                                    </div>
+                                    <!-- /.category-product-inner -->
+                                {% endfor %}
+                            </div>
+                            <!-- /.category-product -->
+                          </div>
+                          <!-- /.tab-pane #list-container -->
+                        </div>
+                        <!-- /.tab-content -->
+                        <div class="clearfix filters-container bottom-row">
+                          <div class="text-right">
+                            <div class="pagination-container">
+                                <ul class="list-inline list-unstyled">
+                                    <li class="prev"><a href="{% if product.has_previous %}?page={{product.previous_page_number}}{% else %}#{% endif %}"><i class="fa fa-angle-left"></i></a></li>
+                                    {% if product.number > 4 %}
+                                        <li>
+                                            <a href="?page=1">1</a>
+                                        </li> 
+                                        <li><a href="#"> . . . </a></li>
+                                    {% endif %}
+                                    {% for i in product.paginator.num_pages|times:product.number %} 
+                                        {% if forloop.counter < 6 %}
+                                            <li>
+                                                <a href="?page={{i}}">{{i}}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}            
+                                    {% if product.number < product.paginator.num_pages|sub:4  %}
+                                    <li><a href="#"> . . . </a></li>
+                                    {% endif %} 
+                        
+                                    <li><a href="?page={{product.paginator.num_pages}}">{{product.paginator.num_pages}}</a>
+                                    </li>
+                                    <li class="next"><a href="{% if product.has_next %}?page={{product.next_page_number}}{% else %}#{% endif %}"><i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                              <!-- /.list-inline -->
+                            </div>
+                            <!-- /.pagination-container -->
+                          </div>
+                          <!-- /.text-right -->
+            
+                        </div>
+                        <!-- /.filters-container -->
+            
+                      </div>
+                      <!-- /.search-result-container -->
+            
+                    </div>
+                    <!-- /.col -->
+                  </div>
+                  <!-- /.row -->
+            
+                </div>
+                <!-- /.container -->
+            
+              </div>
+    
+<script>
+    $(document).ready(function(){
+        $('#plus').click(function(){        
+            var i = $('#num').text()
+            var i = parseInt(i) + 1 ;
+            $('#num').text(i)
+            $('#number').val(i)
+    
+        });
+        $('#minus').click(function(){  
+            var i = $('#num').text()
+            if (i != 1){
+            var i = parseInt(i) - 1 ;
+            $('#num').text(i)
+            $('#number').val(i)
+            }
+    
+        });
+    });
+    
+    {% comment %} var submitForm = function(method){
+    var formAction = '/' + method + '/' + {{product.id}} + '/' +{{c_id}} ;
+    $('#updateForm').attr('action', formAction);
+    $('#updateForm').submit();
+    };
+    
+    $(document)
+    .on('click', '#wishlist', function(){
+        submitForm('wish-list');
+    })
+    .on('click', '#cart', function(){
+        submitForm('cart');
+    }); {% endcomment %}
+    
+    
+    </script>
+{% endblock %}

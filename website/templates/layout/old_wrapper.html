@@ -1,0 +1,385 @@
+<!--main wrapper start-->
+<div id="wrapper">
+    <header>
+        <section class="mainTopbar">
+
+            <div class="container-fluid ">
+                <div class="row">
+
+                    <div class="col-lg-6  col-md-12 col-sm-12 ">
+                        <div class="leftSideMainTopBar">
+
+                            <div class="nameInfo">
+                                <span>Welcome to {% if global_data.site_name != '' %}{{global_data.site_name}}{% else %}Dahal HandiCraft{% endif %}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="rightSidemainTopBar">
+                           
+                            <div class="language">
+                                {% comment %} <div class="dropdown language_box" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown">
+                                    <div class="languageInfo">
+                                        <span id="lan">--Select language --</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                     <ul id="theme" class="dropdown-menu" role="menu">
+                                        <li><a class="link dropdown-item" href="#">-- English --</a></li>
+                                        <li><a class="link dropdown-item" href="#">Nepali</a></li>
+                                        <li><a class="link dropdown-item" href="#">Hindi</a></li>
+                                        <li><a class="link dropdown-item" href="#">Arabic</a></li>
+                                        <li><a class="link dropdown-item" href="#">Darkly</a></li>
+                                        <li><a class="link dropdown-item" href="#">Flatly</a></li>
+                                        <li><a class="link dropdown-item" href="#">Lumen</a></li>
+                                        <li><a class="link dropdown-item" href="#">Simplex</a></li>
+                                        <li><a class="link dropdown-item" href="#">Slate</a></li>
+                                        <li><a class="link dropdown-item" href="#">Spacelab</a></li>
+                                        <li><a class="link dropdown-item" href="#">Superhero</a></li>
+                                        <li><a class="link dropdown-item" href="#">United</a></li>
+                                        <li><a class="link dropdown-item" href="#">Yeti</a></li>
+                                    </ul>
+                                    <script>
+                                       $('#theme li').click(function () {
+                                           //alert('item: ' + $(this).text());
+                                           $('#lan').text($(this).text());
+                                       });
+                                   </script>
+                                </div> {% endcomment %}
+                                
+
+
+
+                                <div id="google_element"></div>
+                                <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+                                <script>
+                                    function loadGoogleTranslate(){
+                                        new google.translate.TranslateElement('google_element');
+                                    }
+                                </script>
+                            </div>
+                            <style>
+                                #google_element span{
+                                    display: none;
+                                }
+                                .skiptranslate{
+                                    font-size:0;
+                                }
+                                
+                                .skiptranslate div{
+                                    font-size:16px;
+                                }
+                                .goog-te-combo{
+                                    padding: 6px;
+                                }
+                            </style>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- top bar -->
+        <section class="container-fluid ">
+            <div class="topBar">
+                <div class="topBarWrapper">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="leftSideTopbar">
+                                <a href="/">
+                                    <img src="{% if global_data.image2 != '' %}{{global_data.image2.url}}{% else %}{% static 'assets/images/logo.png' %}{% endif %} " alt="_logo" />
+                                </a>
+                                {% comment %} <span class="notranslate" >{% if global_data.site_name != '' %}{{global_data.site_name}}{% else %}Dahal HandiCraft{% endif %}<span> {% endcomment %}
+
+                            </div>
+
+                        </div>
+                        <div class="col-5 middleSideTop">
+                            <form action="search" method="get" style="display: flex;">
+                                {% comment %} {% csrf_token %} {% endcomment %}
+                                <div class="searhInput">
+                                    <input type="text" id="search-input" name="product" placeholder="Keyword here..." />
+                                </div>
+                                {% comment %} <div id="search-suggestions">
+                                    {% for k in search %}
+                                    <div class="suggestion">{{ k.name }}</div>
+                                    {% endfor %}
+                                </div> {% endcomment %}
+
+                                <button style="background-color: #00a550; border:none">
+                                    <div class="searchIcon">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-3 rightSideTop">
+                            <div class="cartList">
+                                <a class="link" href="{% url 'Cart' %}">
+                                    <i class="fa-solid fa-cart-arrow-down"></i>
+                                    <p>My Cart</p>
+                                    <span class="badge">{% if cartvalue %}{{cartvalue}}{% else %}0{% endif %}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- navbar start -->
+        <div class="navbar-area">
+            <div class="mobile-nav">
+                <div class="container-fluid">
+                    <div class="mobile-menu">
+
+
+                        <div class="logo">
+
+                            <div class=" small_device_Logo">
+                                <a href="{% url 'Cart' %}">
+                                    <img src="{% static 'assets/images/logo.png' %} " alt="_logo" />
+                                </a>
+
+                                <div class="rightSideTop_mobile">
+                                    <div class="cartList_mobile">
+                                        <a class="link" href="{% url 'Cart' %}">
+                                            <i class="fa-solid fa-cart-arrow-down"></i>
+                                            <span class="badge">{% if cartvalue %}{{cartvalue}}{% else %}0{% endif %}</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="desktop-nav">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <div class="collapse navbar-collapse mean-menu">
+                            <ul class="navbar-nav m-start">
+                                <li class="nav-item">
+                                    <a href="/" class="nav-link active">
+                                        Home
+                                    </a>
+                                </li>
+                                {%for menu in menus %}
+                                    <li class="nav-item">
+                                        <a href="/{%if menu.page_type != "group" %}{{menu.name}}{%else%}#{%endif%}" class="nav-link">
+                                            {{menu.caption}}
+                                            {% if menu.page_type == "group"  %}
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                            {% endif %}
+                                        </a>
+                                        <ul class="dropdown-menu" 
+                                        {% if menu.childs.all %}
+                                        style="height: 250px;overflow: auto;"
+                                        {% endif %}
+                                        >
+                                            {% for submenu in menu.childs.all %}
+                                                <li class="nav-item">
+                                                    <a href="/{{menu.name}}/{{submenu.name}}" class="nav-link">{{submenu.caption}}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                                
+                            </ul>
+
+                        </div>
+                        <a class="navbar-brand" href="#">
+                            <p>
+                                {% if global_data.page_keyword != '' %}{{global_data.page_keyword}}{% else %}
+                                100% original products <br>
+                                {% comment %} <small>change form global-setting (page keyword)</small> {% endcomment %}
+                                {% endif %}
+                                
+                            </p>
+                        </a>
+                    </nav>
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == "error" %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+            {% else %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% block contents %}  
+        <!-- here all contents displayed -->
+    {% endblock %}
+
+   
+    <!-- Your messenger icon code -->
+    <div id="fb-root"></div>
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "103052598456655");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          //appId            : '675754897350622',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v15.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+
+
+
+
+
+
+
+    <!--footer start-->
+    <div class="hm_footer_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="hm_footer_box">
+                        <img src="{% if global_data.image2 != '' %}{{global_data.image2.url}}{% else %}{% static 'assets/images/logo.png' %}{% endif %}" alt="handmade-craft-logo" style="margin-top:50px" class="img-responsive">
+                        <!-- <p class="footer_about_para">Nepali hemp handicrafts products at an affordable price and ship worldwide.</p> -->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="hm_footer_box">
+                        <h3 class="footer_heading">Quick Link</h3>
+                        <ul>
+                            {%for menu in menus %}
+                                {% if menu.page_type != "product" and menu.page_type != "group" %}
+                                    <li class="nav-item">
+                                        <a href="/{%if menu.page_type != "group" %}{{menu.name}}{%else%}{%endif%}" class="nav-link">
+                                            {{menu.caption}}
+                                        </a>
+
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="hm_footer_box">
+                        <h3 class="footer_heading">Product Catalog</h3>
+                        <ul>                          
+                            {%for menu in menus %}
+                                {% for submenu in menu.childs.all %}
+                                    {% if submenu.page_type == "sale" and forloop.counter < 7 %}
+                                        <li class="nav-item">
+                                            <a href="/{{menu.name}}/{{submenu.name}}" class="nav-link">{{submenu.caption}}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="hm_footer_box hm_footer_contact">
+                        <h3 class="footer_heading">Our Information</h3>
+                        <ul>
+                            <li>
+                                <div class="hm_footer_information">
+                                    <span class="footer_icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </span>
+                                    <p class="foo_con_para">{% if global_data.site_address != '' %}{{global_data.site_address}}{% else %}Thamel, Kathmandu, Nepal{% endif %} </p>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="hm_footer_information">
+                                    <a href="tel:014514706"><span class="footer_icon"><i class="fa fa-phone"
+                                                aria-hidden="true"></i> </span>
+                                        <p class="foo_con_para">{% if global_data.site_contact != '' %}{{global_data.site_contact}}{% else %}+977 01-4514706{% endif %}</p>
+                                    </a>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="hm_footer_information">
+                                    <a href="mailto:info@nepalihemp.com"><span class="footer_icon"><i
+                                                class="fa fa-envelope" aria-hidden="true"></i> </span>
+                                        <p class="foo_con_para">{% if global_data.site_email != '' %}{{global_data.site_email}}{% else %}info@nepalihemp.com{% endif %}</p>
+                                    </a>
+                                </div>
+
+                            </li>
+                        </ul>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28256.16214590955!2d85.29791887361867!3d27.716660476621744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199627ab4fd9%3A0xdbf5126864dfb7dc!2sDahal%20Handicraft!5e0!3m2!1sen!2snp!4v1674370469691!5m2!1sen!2snp" width="250" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--bottom footer start-->
+    <div class="hm_bottom_footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <p class="copyright-text">&copy;
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+                        {% if global_data.site_name != '' %}{{global_data.site_name}}{% else %}Dahal HandiCraft{% endif %}, All Rights Reserved. Developed by <a href="http://radiantnepal.com/"
+                            target="_blank">Radiant Infotech Nepal</a>
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <ul class="footer_so_icons">
+                        <li><a href="{% if global_data.fb_link != '' %}{{global_data.fb_link}}{% else %}#{% endif %}"><i class="fa-brands fa-facebook"
+                                    style="color: darkblue; font-size: 20px;"></i></a></li>
+                        <li><a href="{% if global_data.twitter_link != '' %}{{global_data.twitter_link}}{% else %}#{% endif %}"><i class="fa-brands fa-twitter"
+                                    style="color: lightblue; font-size: 20px;"></i></a></li>
+                        <li><a href="{% if global_data.other_link != '' %}{{global_data.other_link}}{% else %}#{% endif %}"><i class="fa-brands fa-youtube"
+                                    style="color: red; font-size: 20px;"></i></a></li>
+                        <li><a href="{% if global_data.other_link != '' %}{{global_data.tiktok_link}}{% else %}#{% endif %}"><i class="fa-brands fa-tiktok"
+                            style="color: black; font-size: 20px;"></i></a></li>
+                        <li><a href="{% if global_data.other_link != '' %}{{global_data.linkedin_link}}{% else %}#{% endif %}"><i class="fa-brands fa-instagram" style="color: #E90B18; font-size: 20px;"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--main wrapper-->
+</div>
+<!--script-->

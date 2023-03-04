@@ -1,0 +1,9 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/nepalihemp/dahal_handicraft/
+    - /bin/cp -r website $DEPLOYPATH
+    - /bin/cp -r root $DEPLOYPATH
+    - /bin/cp -r account $DEPLOYPATH
+    - /bin/cp -r media $DEPLOYPATH
+  
+  

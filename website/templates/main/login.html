@@ -1,0 +1,68 @@
+{% extends 'layout/master.html' %}
+{% block contents %}
+
+    <!-- main top bar -->
+
+ 
+    <div class="breadcrumb">
+        <div class="container">
+          <div class="breadcrumb-inner">
+            <ul class="list-inline list-unstyled">
+              <li><a href="index.html">Home</a></li>
+              <li class='active'>Login</li>
+            </ul>
+          </div><!-- /.breadcrumb-inner -->
+        </div><!-- /.container -->
+      </div><!-- /.breadcrumb -->
+    
+    
+    
+      <!-- ............................login........................... -->
+      <div class="login-admin">
+        <div class="screen-1">
+          <div class="circle"><img src="assets/images/blank-profile.webp" alt=""></div>
+          <div class="email">
+            <label for="email">Email Address</label>
+            <div class="sec-2">
+              <ion-icon name="mail-outline"></ion-icon>
+              <input type="email" name="email" placeholder="Username@gmail.com" />
+            </div>
+          </div>
+          <div class="password">
+            <label for="password">Password</label>
+            <div class="sec-2">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <input class="pas" type="password" name="password" placeholder="············" />
+              <i class="fa-solid fa-eye"></i>
+            </div>
+          </div>
+          <button class="login">Login</button>
+          <div class="footer">
+            <a href="{% url 'user_register' %}">
+                <span>Sign up</span>
+            </a>
+            <a href="">
+                <span>Forgot Password?</span>
+            </a>
+        </div>
+          <div class="login-area">
+            <div class="loin-icon">
+              <h6><i class="fa-brands fa-google"></i>google</h6>
+            </div>
+            <div class="loin-icon">
+              <h6><i class="fa-brands fa-facebook"></i>Facebook</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+
+
+ 
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,437 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="MediaCenter, Template, eCommerce">
+    <meta name="robots" content="all">
+    <title>{% if global_data.site_name != '' %}
+            {{global_data.site_name}}{% else %}
+            MAXIMA{% endif %}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{% static 'assets_web/css/bootstrap.min.css' %}">
+
+    <!-- Customizable CSS -->
+    <link rel="stylesheet" href="{% static 'assets_web/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'assets_web/css/blue.css' %}">
+    <link rel="stylesheet" href="{% static 'assets_web/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'assets_web/css/owl.transitions.css' %}">
+    <link rel="stylesheet" href="{% static 'assets_web/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets_web/css/rateit.css' %}">
+    <link rel="stylesheet" href="{% static 'assets_web/css/bootstrap-select.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets_web/css/responsive.css' %}">
+
+
+    <!-- Icons/Glyphs -->
+    <link rel="stylesheet" href="{% static 'assets_web/css/font-awesome.css' %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Barlow:200,300,300i,400,400i,500,500i,600,700,800"
+    rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800'
+    rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/solid.min.css"
+    integrity="sha512-bdTSJB23zykBjGDvyuZUrLhHD0Rfre0jxTd0/jpTbV7sZL8DCth/88aHX0bq2RV8HK3zx5Qj6r2rRU/Otsjk+g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block topjscontents %}  
+    <!-- here all contents displayed -->
+    {% endblock %}
+
+<body class="cnt-home">
+
+    <header class="header-style-1">
+      <!-- ============================================== TOP MENU ============================================== -->
+    <div class="top-bar animate-dropdown">
+      <div class="container">
+        <div class="header-top-inner">
+          <div class="cnt-account">
+            <ul class="list-unstyled">
+              <li class=""><a href="#" class="top-heder"><span><i class="fa-solid fa-van-shuttle"></i>Track Your Order</span></a></li>
+             
+            </ul>
+          </div>
+         
+
+          <div class="cnt-block">
+            <ul class="list-unstyled list-inline">
+              <li><a href="" class="top-heder"> Welcome to {{global_data.page_title}}</a></li>
+
+            </ul>
+       
+          </div>
+       
+          <div class="clearfix"></div>
+        </div>
+    
+      </div>
+     
+    </div>
+    <!-- /.header-top -->
+
+        <div class="main-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-12 logo-holder">
+                <!-- ============================================================= LOGO ============================================================= -->
+                <div class="logo">
+                  <a href="index.html">
+                    <img src="{% static 'assets_web/images/logo/logo.png' %}" alt="logo">
+                  </a>
+                </div>
+                <!-- /.logo -->
+                <!-- ============================================================= LOGO : END ============================================================= -->
+              </div>
+              <!-- /.logo-holder -->
+    
+              <div class="col-lg-4 col-md-4 col-sm-4 col-12 top-search-holder">
+                <!-- /.contact-row -->
+                <!-- ============================================================= SEARCH AREA ============================================================= -->
+                <div class="search-area">
+                  <form>
+                    <div class="control-group">
+                      <input class="search-field" placeholder="Search here..." />
+                      <a class="search-button" href="#"></a>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.search-area -->
+                <!-- ============================================================= SEARCH AREA : END ============================================================= -->
+              </div>
+              <!-- /.top-search-holder -->
+    
+              <div class="col-lg-4 col-md-4 col-sm-4 col-12 animate-dropdown top-cart-row">
+                <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+    
+                <div class="dropdown dropdown-cart">
+                  <a href="my-wishlist.html">
+                    <div class="items-cart-inner">
+                      <div class="fro-admin">
+                        <i class="fa-regular fa-heart"></i>
+    
+                      </div>
+                      <span>Wish List</span>
+                    </div>
+    
+                  </a>
+                  <a href="detail.html" class="dropdown-toggle lnk-cart">
+                    <div class="items-cart-inner">
+                      <div class="basket">
+                        <i class="fa-solid fa-cart-arrow-down"></i>
+                      </div>
+                      <span> My Cart</span>
+                    </div>
+                  </a>
+                  <a href="{% url 'user_login' %}">
+                    <div class="items-cart-inner">
+                      <div class="fro-admin">
+                        <i class="fa fa-user"></i>
+    
+                      </div>
+                      <span>login</span>
+                    </div>
+    
+                  </a>
+    
+    
+                </div>
+    
+    
+                <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
+              </div>    
+            </div>  
+          </div>   
+        </div>
+    
+        <div id="navbar">
+          <div class="container">
+            <div class="header-nav animate-dropdown">
+              <div class="container">
+                <div class="yamm navbar navbar-default" role="navigation">
+                  <div class="navbar-header">
+                    <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse"
+                      class="navbar-toggle collapsed" type="button">
+                      <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                  </div>
+                  <div class="nav-bg-class">
+                    <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+                      <div class="nav-outer">
+                        <ul class="nav navbar-nav">
+                          {% comment %} <li class="active dropdown"> <a href="/">Home</a> </li> {% endcomment %}
+
+                          {% comment %} <li class=" dropdown"> <a href="about.html">Aboutt</a> </li> {% endcomment %}
+                          {% comment %} <li class=" dropdown"> <a href="category.html">New Arrivals</a> </li>
+                          <li class=" dropdown"> <a href="about.html">Service Center</a> </li> {% endcomment %}
+                          {% comment %} <li class=" dropdown"> <a href="category.html"><i class="fa-regular fa-star"></i>New Arrivals</a> </li>
+                          <li class=" dropdown"> <a href="about.html"><i class="fa-solid fa-gears"></i>Service Center</a> </li>
+     {% endcomment %}
+    
+                            {%for menu in menus %}
+                                <li class="nav-item">
+                                    <a href="/{%if menu.page_type != "group" %}{{menu.name}}{%else%}#{%endif%}" class="nav-link">
+                                      {% if menu.page_type == "product"  %}
+                                      <i class="fa-regular fa-star"></i>
+                                      {% endif %}
+                                      {% if menu.page_type == "normal"  %}
+                                      <i class="fa-solid fa-gears"></i>
+                                      {% endif %}
+                                        {{menu.caption}}
+                                    </a>
+                                    {% comment %} <ul class="dropdown-menu" 
+                                    {% if menu.childs.all %}
+                                    style="height: 250px;overflow: auto;"
+                                    {% endif %}
+                                    >
+                                        {% for submenu in menu.childs.all %}
+                                            <li class="nav-item">
+                                                <a href="/{{menu.name}}/{{submenu.name}}" class="nav-link">{{submenu.caption}}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul> {% endcomment %}
+                                </li>
+                            {% endfor %}
+    
+                          <li class="dropdown  navbar-right special-menu"> <a href="#">Get 30% off on
+                              selected items</a> </li>
+                        </ul>
+                        <!-- /.navbar-nav -->
+                        <div class="clearfix"></div>
+                      </div>
+                      <!-- /.nav-outer -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+    
+                  </div>
+                  <!-- /.nav-bg-class -->
+                </div>
+                <!-- /.navbar-default -->
+              </div>
+              <!-- /.container-class -->
+    
+            </div>
+            <!-- /.header-nav -->
+            <!-- ============================================== NAVBAR : END ============================================== -->
+          </div>
+        </div>
+        
+    </header>
+
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == "error" %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+            {% else %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+{% block contents %}  
+    <!-- here all contents displayed -->
+{% endblock %}
+  
+  
+  
+      <!-- ============================================== INFO BOXES ============================================== -->
+  <div class="row our-features-box">
+    <div class="container">
+      <ul>
+        <li>
+          <div class="feature-box">
+            <div class="icon-truck"></div>
+            <div class="content-blocks">We ship Nepal</div>
+          </div>
+        </li>
+        <li>
+          <div class="feature-box">
+            <div class="icon-support"></div>
+            <div class="content-blocks">
+              {{global_data.site_contact}}</div>
+          </div>
+        </li>
+        <li>
+          <div class="feature-box">
+            <div class="icon-money"></div>
+            <div class="content-blocks">Money Back Guarantee</div>
+          </div>
+        </li>
+        <li>
+          <div class="feature-box">
+            <div class="icon-return"></div>
+            <div class="content">7 days return</div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <!-- /.info-boxes -->
+  <!-- ============================================== INFO BOXES : END ============================================== -->
+
+  <!-- ============================================================= FOOTER ============================================================= -->
+  <footer id="footer" class="footer color-bg">
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="address-block">
+
+              <!-- /.module-heading -->
+
+              <div class="module-body">
+                <ul class="toggle-footer" style="">
+                  <li class="media">
+                    <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i
+                          class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
+                    <div class="media-body">
+                      <p>{{global_data.site_name}}</p>
+                    </div>
+                  </li>
+                  <li class="media">
+                    <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i
+                          class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
+                    <div class="media-body">
+                      <p>{{global_data.site_contact}}</p>
+                    </div>
+                  </li>
+                  <li class="media">
+                    <a href="mailto:{{global_data.site_email}}">
+                    <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i
+                          class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
+                    <div class="media-body"> &nbsp;&nbsp; <span>{{global_data.site_email}}</span> </div></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.module-body -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="module-heading">
+              <h4 class="module-title">INFORMATION</h4>
+            </div>
+            <!-- /.module-heading -->
+
+            <div class="module-body">
+              <ul class='list-unstyled'>
+                <li class="first"><a href="#" title="Contact us">About Us</a></li>
+                <li><a href="#" title="About us">Contact Us</a></li>
+                <li><a href="#" title="New Arrivals">New Arrivals</a></li>
+                <li><a href="#" title="New Arrivals">Laptops</a></li>
+              </ul>
+            </div>
+            <!-- /.module-body -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="module-heading">
+              <h4 class="module-title">CUSTOMER SERVICE</h4>
+            </div>
+            <!-- /.module-heading -->
+
+            <div class="module-body">
+              <ul class='list-unstyled'>
+                <li class="first"><a title="Your Account" href="contact.html">Sitemap</a></li>
+                <li><a title="Information" href="contact.html">Store Location</a></li>
+              </ul>
+            </div>
+            <!-- /.module-body -->
+          </div>
+          <!-- /.col -->
+
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="module-heading">
+              <h4 class="module-title">Map</h4>
+            </div>
+            <!-- /.module-heading -->
+
+            <div class="module-body">
+              <!-- <ul class='list-unstyled'>
+                <li class="first"><a href="#" title="About us">Shopping Guide</a></li>
+                <li><a href="#" title="Blog">Blog</a></li>
+                <li><a href="#" title="Company">Company</a></li>
+                <li><a href="#" title="Investor Relations">Investor Relations</a></li>
+                <li class=" last"><a href="contact-us.html" title="Suppliers">Contact Us</a></li>
+              </ul> -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14123.251801249091!2d85.3594294!3d27.7539148!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1987e6d32d8d%3A0x18c8c3ec99b11971!2sMaxima%20International%20Trading%20Pvt.%20Ltd.%20(HIKVISION%20NEPAL)!5e0!3m2!1sne!2snp!4v1675938069007!5m2!1sne!2snp"
+                width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- /.module-body -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright-bar">
+      <div class="container">
+        <div class="col-xs-12 col-sm-4 no-padding social">
+          <ul class="link">
+            <li class="fb pull-left"><a target="_blank" rel="nofollow" href="{{global_data.fb_link}}" title="Facebook"></a></li>
+            <li class="tw pull-left"><a target="_blank" rel="nofollow" href="{{global_data.fb_link}}" title="Twitter"></a></li>
+            {% comment %} <li class="googleplus pull-left"><a target="_blank" rel="nofollow" href="#" title="GooglePlus"></a></li> {% endcomment %}
+            {% comment %} <li class="rss pull-left"><a target="_blank" rel="nofollow" href="#" title="RSS"></a></li> {% endcomment %}
+            {% comment %} <li class="pintrest pull-left"><a target="_blank" rel="nofollow" href="#" title="PInterest"></a></li> {% endcomment %}
+            <li class="linkedin pull-left"><a target="_blank" rel="nofollow" href="{{global_data.linkedin_link}}" title="Instagram"></a></li>
+            <li class="youtube pull-left"><a target="_blank" rel="nofollow" href="{{global_data.other_link}}" title="Youtube"></a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 no-padding copyright"><a target="_blank" href="">©<script>document.write(new Date().getFullYear());</script> {{global_data.page_title}} Pvt. Ltd.
+            All Right Reserved. Developed by <a href="http://radiantnepal.com/">Radiant Infotech</a></a> </div>
+        <div class="col-xs-12 col-sm-4 no-padding">
+          <div class="clearfix payment-methods">
+            <ul>
+              <li><img src="assets/images/payments/esewa.png" alt=""></li>
+              <li><img src="assets/images/payments/fone-pay.png" alt=""></li>
+              <li><img src="assets/images/payments/khalti.png" alt=""></li>
+              <!-- <li><img src="assets/images/payments/4.png" alt=""></li>
+              <li><img src="assets/images/payments/5.png" alt=""></li> -->
+            </ul>
+          </div>
+          <!-- /.payment-methods -->
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- ============================================================= FOOTER : END============================================================= -->
+
+  <!-- JavaScripts placed at the end of the document so the pages load faster -->
+  <script src="{% static 'assets_web/js/jquery-1.11.1.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/bootstrap-hover-dropdown.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/echo.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/jquery.easing-1.3.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/bootstrap-slider.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/jquery.rateit.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/lightbox.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/bootstrap-select.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/wow.min.js' %}"></script>
+  <script src="{% static 'assets_web/js/scripts.js' %}"></script>
+  <script src="{% static 'assets_web/js/sticky.js' %}"></script>
+  {% block jscontents %}  
+  <!-- here all contents displayed -->
+  {% endblock %}
+  
+</body>
+
+</html>
