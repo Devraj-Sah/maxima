@@ -6,7 +6,7 @@
       <ul class="list-inline list-unstyled">
         <li><a href="index.html">Home</a></li>
         <li><a href="#">Detail</a></li>
-        <li class="active">Dell XPS 13| i7 - 1260P | 16G</li>
+        <li class="active">{{product.name}}</li>
       </ul>
     </div>
     <!-- /.breadcrumb-inner -->
@@ -35,7 +35,7 @@
                   <div class="products">
                     <div class="hot-deal-wrapper">
                       <div class="image">
-                        <a href="#">
+                        <a href="/product-details/{{best_prod.id}}">
                           <img src="{{ best_prod.image1.url }}" alt="">
                           <img src="{{ best_prod.image2.url }}" alt="" class="hover-image">
                         </a>
@@ -72,7 +72,7 @@
                   <!-- /.hot-deal-wrapper -->
 
                   <div class="product-info text-left m-t-20">
-                    <h3 class="name"><a href="#">{{best_prod.name}}
+                    <h3 class="name"><a href="/product-details/{{best_prod.id}}">{{best_prod.name}}
                       </a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="product-price"> <span class="price"> Rs.{{ best_prod.price|sub:best_prod.discount }} </span> 
@@ -261,7 +261,7 @@
                                     <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="6" href="#slide6">
                                         <img class="img-responsive" alt="" src="{{product.image6.url}}"
                                         data-echo="{{product.image6.url}}" />
-                                    </a>
+                                    </a> 
                                 </div>
                             {% endif %}
                             {% if product.image7 %}
@@ -298,7 +298,7 @@
             <!-- /.gallery-holder -->
             <div class="col-sm-12 col-md-8 col-lg-8 product-info-block">
               <div class="product-info">
-                <h1 class="name">Dell XPS 13| i7 - 1260P | 16G</h1>
+                <h1 class="name">{{product.name}}</h1>
 
                 <div class="rating-reviews m-t-20">
                   <div class="row">
@@ -327,7 +327,7 @@
                       </div>
                       <div class="pull-left">
                         <div class="stock-box">
-                          <span class="value">In Stock</span>
+                          <span class="value">{% if product.quantity > 0  %}In Stock {% else %} Out of stock {% endif %} </span>
                         </div>
                       </div>
                     </div>
@@ -337,7 +337,7 @@
                 <!-- /.stock-container -->
 
                 <div class="description-container m-t-20">
-                  <ul>
+                  {% comment %} <ul>
                     <li>
                       Intel I5 - 1235U Processor (12MB Cache, up to 4.4 GHz, 10
                       cores)
@@ -352,31 +352,36 @@
                       brightness
                     </li>
                     <li></li>
-                  </ul>
+                  </ul> {% endcomment %}
+                  {{product.discription|safe}}
                 </div>
 
                 <div class="price-container info-container m-t-30">
                   <div class="row">
                     <div class="col-sm-6 col-xs-6">
                       <div class="price-box">
-                        <span class="price">$800.00</span>
-                        <span class="price-strike">$900.00</span>
+                        <span class="price"> Rs.{{ product.price|sub:product.discount }} </span>
+                        {% if product.discount != "0" %}
+                          <span class="price-strike">Rs.{{ product.price }}</span>
+                        {% endif %}
                       </div>
                     </div>
 
                     <div class="col-sm-6 col-xs-6">
                       <div class="favorite-button m-t-5">
                         <a
+                          style="background:#157ed2"
                           class="btn btn-primary"
                           data-toggle="tooltip"
                           data-placement="right"
-                          title="Wishlist"
+                          title="Add To Wishlist"
                           href="#"
                         >
                           <i class="fa fa-heart"></i>
                         </a>
                         <a
                           class="btn btn-primary"
+                          style="background:#157ed2"
                           data-toggle="tooltip"
                           data-placement="right"
                           title="Add to link"
@@ -384,14 +389,15 @@
                         >
                           <i class="fa fa-link"></i>
                         </a>
-                        <a
+                        {% comment %} <a
                           class="btn btn-primary"
                           data-toggle="tooltip"
                           data-placement="right"
                           title="E-mail"
                           href="#"
-                        >
-                          <i class="fa fa-envelope"></i>
+                        > 
+                        <i class="fa fa-envelope"></i>
+                        {% endcomment %}
                         </a>
                       </div>
                     </div>
@@ -412,19 +418,22 @@
                           <div class="arrows">
                             <div class="arrow plus gradient">
                               <span class="ir"
-                                ><i class="icon fa fa-sort-asc"></i
+                                ><i id="plus" class="icon fa fa-sort-asc"></i
                               ></span>
                             </div>
                             <div class="arrow minus gradient">
                               <span class="ir"
-                                ><i class="icon fa fa-sort-desc"></i
+                                ><i id="minus" class="icon fa fa-sort-desc"></i
                               ></span>
                             </div>
                           </div>
-                          <input type="text" value="1" />
+                          <input id="num" type="text" value="1" />
                         </div>
                       </div>
                     </div>
+                    <input type='hidden'  name="number" id="number" value="1">
+
+                                    
 
                     <div class="add-btn">
                       <a href="shopping-cart.html" class="btn btn-primary"
@@ -451,7 +460,7 @@
                 <li class="active">
                   <a data-toggle="tab" href="#description">DESCRIPTION</a>
                 </li>
-                <li><a data-toggle="tab" href="#tags">Specification </a></li>
+                {% comment %} <li><a data-toggle="tab" href="#tags">Specification </a></li> {% endcomment %}
                 <li><a data-toggle="tab" href="#review">REVIEW</a></li>
               </ul>
               <!-- /.nav-tabs #product-tabs -->
@@ -460,9 +469,9 @@
               <div class="tab-content">
                 <div id="description" class="tab-pane in active">
                   <div class="product-tab">
-                    <h4 class="title">Description</h4>
-
-                    <ul>
+                    <h4 class="title" style="margin-top: 0px;" >  Description</h4> </br>
+                    {{product.discription|safe}}
+                    {% comment %} <ul>
                       <li>
                         Intel I5 - 1235U Processor (12MB Cache, up to 4.4 GHz,
                         10 cores)
@@ -477,7 +486,7 @@
                         brightness
                       </li>
                       <li></li>
-                    </ul>
+                    </ul> {% endcomment %}
                   </div>
                 </div>
                 <!-- /.tab-pane -->
@@ -501,8 +510,7 @@
                                 <div class="form-group">
                                   <label for="exampleInputName"
                                     >Your Name
-                                    <span class="astk">*</span></label
-                                  >
+                                    <span class="astk">*</span></label>
                                   <input
                                     type="text"
                                     class="form-control txt"
@@ -561,7 +569,7 @@
                 </div>
                 <!-- /.tab-pane -->
 
-                <div id="tags" class="tab-pane">
+                {% comment %} <div id="tags" class="tab-pane">
                   <div class="product-tag">
                     <h4 class="title">Specification</h4>
                     <div class="sp-products">
@@ -609,7 +617,9 @@
                     </div>
                   </div>
                   <!-- /.product-tab -->
-                </div>
+                </div> {% endcomment %}
+
+
                 <!-- /.tab-pane -->
               </div>
               <!-- /.tab-content -->
@@ -642,13 +652,14 @@
               <div
                 class="owl-carousel homepage-owl-carousel upsell-product custom-carousel owl-theme outer-top-xs"
               >
+              {% for r_product in related_product %}
                 <div class="item item-carousel">
                   <div class="products">
                     <div class="product">
                       <div class="product-image">
                         <div class="image">
-                          <a href="detail"
-                            ><img src="assets/images/mobile/mb1.png" alt=""
+                          <a href="/product-details/{{r_product.id}}"
+                            ><img src="{{ r_product.image1.url }}" alt=""
                           /></a>
                         </div>
                         <!-- /.image -->
@@ -659,14 +670,15 @@
 
                       <div class="product-info text-left">
                         <h3 class="name">
-                          <a href="detail">Apple Iphone 14 Pro Max</a>
+                          <a href="/product-details/{{r_product.id}}">{{r_product.name}}</a>
                         </h3>
                         <div class="rating rateit-small"></div>
                         <div class="description"></div>
 
-                        <div class="product-price">
-                          <span class="price"> $650.99 </span>
-                          <span class="price-before-discount">$ 800</span>
+                        <div class="product-price"> <span class="price"> Rs.{{ r_product.price|sub:r_product.discount }} </span> 
+                          {% if r_product.discount != "0" %}
+                          <span class="price-before-discount">Rs.{{ r_product.price }}</span>
+                          {% endif %}
                         </div>
                         <!-- /.product-price -->
                       </div>
@@ -719,396 +731,8 @@
                   <!-- /.products -->
                 </div>
                 <!-- /.item -->
+              {% endfor %}
 
-                <div class="item item-carousel">
-                  <div class="products">
-                    <div class="product">
-                      <div class="product-image">
-                        <div class="image">
-                          <a href="detail"
-                            ><img src="assets/images/mobile/mb2.png" alt=""
-                          /></a>
-                        </div>
-                        <!-- /.image -->
-
-                        <div class="tag sale"><span>sale</span></div>
-                      </div>
-                      <!-- /.product-image -->
-
-                      <div class="product-info text-left">
-                        <h3 class="name">
-                          <a href="detail">Apple Iphone 14 Pro Max</a>
-                        </h3>
-                        <div class="rating rateit-small"></div>
-                        <div class="description"></div>
-
-                        <div class="product-price">
-                          <span class="price"> $650.99 </span>
-                          <span class="price-before-discount">$ 800</span>
-                        </div>
-                        <!-- /.product-price -->
-                      </div>
-                      <!-- /.product-info -->
-                      <div class="cart clearfix animate-effect">
-                        <div class="action">
-                          <ul class="list-unstyled">
-                            <li class="add-cart-button btn-group">
-                              <a href="detail.html">
-                                <button
-                                  class="btn btn-primary icon"
-                                  data-toggle="dropdown"
-                                  type="button"
-                                >
-                                  <i class="fa fa-shopping-cart"></i>
-                                </button>
-                              </a>
-                              <button
-                                class="btn btn-primary cart-btn"
-                                type="button"
-                              >
-                                Add to cart
-                              </button>
-                            </li>
-
-                            <li class="lnk wishlist">
-                              <a
-                                class="add-to-cart"
-                                href="my-wishlist.html"
-                                title="Wishlist"
-                              >
-                                <i class="icon fa fa-heart"></i>
-                              </a>
-                            </li>
-
-                            <li class="lnk">
-                              <a class="add-to-cart" href="#" title="link">
-                                <i class="fa fa-link"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <!-- /.action -->
-                      </div>
-                      <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-                  </div>
-                  <!-- /.products -->
-                </div>
-                <!-- /.item -->
-
-                <div class="item item-carousel">
-                  <div class="products">
-                    <div class="product">
-                      <div class="product-image">
-                        <div class="image">
-                          <a href="detail"
-                            ><img src="assets/images/mobile/mb3.png" alt=""
-                          /></a>
-                        </div>
-                        <!-- /.image -->
-
-                        <div class="tag hot"><span>hot</span></div>
-                      </div>
-                      <!-- /.product-image -->
-
-                      <div class="product-info text-left">
-                        <h3 class="name">
-                          <a href="detail">Apple Iphone 14 Pro Max</a>
-                        </h3>
-                        <div class="rating rateit-small"></div>
-                        <div class="description"></div>
-
-                        <div class="product-price">
-                          <span class="price"> $650.99 </span>
-                          <span class="price-before-discount">$ 800</span>
-                        </div>
-                        <!-- /.product-price -->
-                      </div>
-                      <!-- /.product-info -->
-                      <div class="cart clearfix animate-effect">
-                        <div class="action">
-                          <ul class="list-unstyled">
-                            <li class="add-cart-button btn-group">
-                              <a href="detail.html">
-                                <button
-                                  class="btn btn-primary icon"
-                                  data-toggle="dropdown"
-                                  type="button"
-                                >
-                                  <i class="fa fa-shopping-cart"></i>
-                                </button>
-                              </a>
-                              <button
-                                class="btn btn-primary cart-btn"
-                                type="button"
-                              >
-                                Add to cart
-                              </button>
-                            </li>
-
-                            <li class="lnk wishlist">
-                              <a
-                                class="add-to-cart"
-                                href="my-wishlist.html"
-                                title=" Wishlist"
-                              >
-                                <i class="icon fa fa-heart"></i>
-                              </a>
-                            </li>
-
-                            <li class="lnk">
-                              <a class="add-to-cart" href="#" title="link">
-                                <i class="fa fa-link"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <!-- /.action -->
-                      </div>
-                      <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-                  </div>
-                  <!-- /.products -->
-                </div>
-                <!-- /.item -->
-
-                <div class="item item-carousel">
-                  <div class="products">
-                    <div class="product">
-                      <div class="product-image">
-                        <div class="image">
-                          <a href="detail"
-                            ><img src="assets/images/mobile/mb4.png" alt=""
-                          /></a>
-                        </div>
-                        <!-- /.image -->
-
-                        <div class="tag new"><span>new</span></div>
-                      </div>
-                      <!-- /.product-image -->
-
-                      <div class="product-info text-left">
-                        <h3 class="name">
-                          <a href="detail">Apple Iphone 14 Pro Max</a>
-                        </h3>
-                        <div class="rating rateit-small"></div>
-                        <div class="description"></div>
-
-                        <div class="product-price">
-                          <span class="price"> $650.99 </span>
-                          <span class="price-before-discount">$ 800</span>
-                        </div>
-                        <!-- /.product-price -->
-                      </div>
-                      <!-- /.product-info -->
-                      <div class="cart clearfix animate-effect">
-                        <div class="action">
-                          <ul class="list-unstyled">
-                            <li class="add-cart-button btn-group">
-                              <a href="detail.html">
-                                <button
-                                  class="btn btn-primary icon"
-                                  data-toggle="dropdown"
-                                  type="button"
-                                >
-                                  <i class="fa fa-shopping-cart"></i>
-                                </button>
-                              </a>
-                              <button
-                                class="btn btn-primary cart-btn"
-                                type="button"
-                              >
-                                Add to cart
-                              </button>
-                            </li>
-
-                            <li class="lnk wishlist">
-                              <a
-                                class="add-to-cart"
-                                href="my-wishlist.html"
-                                title="Wishlist"
-                              >
-                                <i class="icon fa fa-heart"></i>
-                              </a>
-                            </li>
-
-                            <li class="lnk">
-                              <a class="add-to-cart" href="#" title="link">
-                                <i class="fa fa-link"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <!-- /.action -->
-                      </div>
-                      <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-                  </div>
-                  <!-- /.products -->
-                </div>
-                <!-- /.item -->
-
-                <div class="item item-carousel">
-                  <div class="products">
-                    <div class="product">
-                      <div class="product-image">
-                        <div class="image">
-                          <a href="detail"
-                            ><img
-                              src="assets/images/mobile/mb6.png"
-                              data-echo="assets/images/mobile/mb6.png"
-                              alt=""
-                          /></a>
-                        </div>
-                        <!-- /.image -->
-
-                        <div class="tag hot"><span>hot</span></div>
-                      </div>
-                      <!-- /.product-image -->
-
-                      <div class="product-info text-left">
-                        <h3 class="name">
-                          <a href="detail">Apple Iphone 14 Pro Max</a>
-                        </h3>
-                        <div class="rating rateit-small"></div>
-                        <div class="description"></div>
-
-                        <div class="product-price">
-                          <span class="price"> $650.99 </span>
-                          <span class="price-before-discount">$ 800</span>
-                        </div>
-                        <!-- /.product-price -->
-                      </div>
-                      <!-- /.product-info -->
-                      <div class="cart clearfix animate-effect">
-                        <div class="action">
-                          <ul class="list-unstyled">
-                            <li class="add-cart-button btn-group">
-                              <a href="detail.html">
-                                <button
-                                  class="btn btn-primary icon"
-                                  data-toggle="dropdown"
-                                  type="button"
-                                >
-                                  <i class="fa fa-shopping-cart"></i>
-                                </button>
-                              </a>
-                              <button
-                                class="btn btn-primary cart-btn"
-                                type="button"
-                              >
-                                Add to cart
-                              </button>
-                            </li>
-
-                            <li class="lnk wishlist">
-                              <a
-                                class="add-to-cart"
-                                href="my-wishlist.html"
-                                title="Wishlist"
-                              >
-                                <i class="icon fa fa-heart"></i>
-                              </a>
-                            </li>
-
-                            <li class="lnk">
-                              <a class="add-to-cart" href="#" title="link">
-                                <i class="fa fa-link"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <!-- /.action -->
-                      </div>
-                      <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-                  </div>
-                  <!-- /.products -->
-                </div>
-                <!-- /.item -->
-
-                <div class="item item-carousel">
-                  <div class="products">
-                    <div class="product">
-                      <div class="product-image">
-                        <div class="image">
-                          <a href="detail"
-                            ><img
-                              src="assets/images/mobile/mb7.png"
-                              data-echo="assets/images/mobile/mb8.png"
-                              alt=""
-                          /></a>
-                        </div>
-                        <!-- /.image -->
-
-                        <div class="tag new"><span>new</span></div>
-                      </div>
-                      <!-- /.product-image -->
-
-                      <div class="product-info text-left">
-                        <h3 class="name">
-                          <a href="detail">Apple Iphone 14 Pro Max</a>
-                        </h3>
-                        <div class="rating rateit-small"></div>
-                        <div class="description"></div>
-
-                        <div class="product-price">
-                          <span class="price"> $650.99 </span>
-                          <span class="price-before-discount">$ 800</span>
-                        </div>
-                        <!-- /.product-price -->
-                      </div>
-                      <!-- /.product-info -->
-                      <div class="cart clearfix animate-effect">
-                        <div class="action">
-                          <ul class="list-unstyled">
-                            <li class="add-cart-button btn-group">
-                              <a href="detail.html">
-                                <button
-                                  class="btn btn-primary icon"
-                                  data-toggle="dropdown"
-                                  type="button"
-                                >
-                                  <i class="fa fa-shopping-cart"></i>
-                                </button>
-                              </a>
-                              <button
-                                class="btn btn-primary cart-btn"
-                                type="button"
-                              >
-                                Add to cart
-                              </button>
-                            </li>
-
-                            <li class="lnk wishlist">
-                              <a
-                                class="add-to-cart"
-                                href="my-wishlist.html"
-                                title="Wishlist"
-                              >
-                                <i class="icon fa fa-heart"></i>
-                              </a>
-                            </li>
-
-                            <li class="lnk">
-                              <a class="add-to-cart" href="#" title="link">
-                                <i class="fa fa-link"></i>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <!-- /.action -->
-                      </div>
-                      <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-                  </div>
-                  <!-- /.products -->
-                </div>
                 <!-- /.item -->
               </div>
               <!-- /.home-owl-carousel -->
@@ -1126,39 +750,37 @@
     <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
   </div>
 </div>
-<script>
-  $(document).ready(function(){
-      $('#plus').click(function(){
-          var i = $('#num').text()
-          var i = parseInt(i) + 1 ;
-          $('#num').text(i)
-          $('#number').val(i)
+     
 
+
+{% endblock %}
+
+{% block jscontents %}
+<script>
+
+  $(document).ready(function(){
+      $('#plus').click(function(){  
+          var i = $('#num').val()
+          var i = parseInt(i) + 1 ;
+          $('#num').val(i)
+          $('#number').val(i)
+  
       });
-      $('#minus').click(function(){
-          var i = $('#num').text()
+      $('#num').keyup(function(){
+          var i = $('#num').val()
+          $('#number').val(i)
+      });
+  
+      $('#minus').click(function(){  
+          var i = $('#num').val()
           if (i != 1){
           var i = parseInt(i) - 1 ;
-          $('#num').text(i)
+          $('#num').val(i)
           $('#number').val(i)
           }
-
+  
       });
   });
-
-  {% comment %} var submitForm = function(method){
-  var formAction = '/' + method + '/' + {{product.id}} + '/' +{{c_id}} ;
-  $('#updateForm').attr('action', formAction);
-  $('#updateForm').submit();
-  };
-
-  $(document)
-  .on('click', '#wishlist', function(){
-      submitForm('wish-list');
-  })
-  .on('click', '#cart', function(){
-      submitForm('cart');
-  }); {% endcomment %}
-</script>
+</script> 
 
 {% endblock %}

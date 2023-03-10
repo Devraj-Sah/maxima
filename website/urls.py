@@ -10,8 +10,8 @@ urlpatterns = [
     path('product-details/<int:id>', views.ProductDetail, name='ProductDetail'),
     path('blog-details/<int:id>', views.BlogDetail, name='BlogDetail'),
     # # ishere field 1 =>wishlist |||| 0 => cart ||| 2=> order
-    # path('wish-list/', views.WishList, name='WishList'),
-    # path('wish-list/<int:p_id>/<int:c_id>', views.WishList, name='WishList'),
+    path('wish-list/', views.WishList, name='WishList'),
+    path('wish-list/<int:p_id>', views.WishList, name='WishList'),
     path('wish-delete/<int:p_id>/<int:pk>/<str:next>', views.WishListDelete, name='WishListDelete'),
     path('cart/', views.Cart, name='Cart'),
     path('cart/<int:p_id>/<int:c_id>', views.Cart, name='Cart'),

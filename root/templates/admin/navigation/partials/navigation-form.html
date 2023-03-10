@@ -120,7 +120,7 @@
                                         <div class="row">
                                             <div class="col-md-12 ">
                                                 <div class="form-group">
-                                                    <textarea class="form-control" name="short_description" rows="4">{{id_data.short_description}}</textarea>                                            
+                                                    <textarea class="form-control" name="short_description" id="short_description" rows="4">{{id_data.short_description}}</textarea>                                            
                                                 </div>
                                             </div>
                                         </div>
@@ -130,7 +130,8 @@
                                             <div class="col-md-12 ">
                                                 <div class="form-group">
                                                     <textarea id="long_content" name="long_contents">{{id_data.long_contents}}</textarea>
-                                                     <script src="{% static '/assets/dist/js/htmeditor.min.js' %}"      htmeditor_textarea="long_content"      full_screen="no"      editor_height="350"     run_local="no"> </script> 
+                                                     <script src="{% static '/assets/dist/js/htmeditor.min.js' %}"      htmeditor_textarea="long_content" htmeditor_textarea1="short_description"     full_screen="no"      editor_height="350" editor_height1="200"    run_local="no"> </script> 
+                                                     {% comment %} <script src="{% static '/assets/dist/js/htmeditor.min.js' %}"      htmeditor_textarea="long_content"      full_screen="no"      editor_height="350"     run_local="no"> </script>  {% endcomment %}
                                                      <!-- https://www.htmeditor.com/embed-html-editor/ -->
                                                      <!-- Embed the HTMEditor <textarea id="htmeditor"></textarea> <script src="https://htmeditor.com/js/htmeditor.min.js"      htmeditor_textarea="htmeditor"      full_screen="yes"      editor_height="480"     run_local="no"> </script>  -->
                                                      <!-- <textarea name="long_contents" class="form-control" rows="4">{{id_data.long_contents}}</textarea> -->

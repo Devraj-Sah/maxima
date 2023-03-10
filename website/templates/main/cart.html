@@ -3,23 +3,20 @@
 {% block contents %}
 {% load mathfilters %} 
  <!--banner start-->
- <div class="hm_bread_wrapper">
+ <div class="breadcrumb">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <h1>Your Cart Section</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{% url 'Cart' %}">Cart</a></li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</div>
+      <div class="breadcrumb-inner">
+        <ul class="list-inline list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li class='active'>Shopping Cart</li>
+        </ul>
+      </div><!-- /.breadcrumb-inner -->
+    </div><!-- /.container -->
+  </div><!-- /.breadcrumb -->
 
 <!--cart section start-->
 
-<div class="container">
+{% comment %} <div class="container">
     <div class="cart_all_pro">
         <div class="px-4 px-lg-0">
             <!-- For demo purpose -->
@@ -173,7 +170,249 @@
         </div>
     </div>
 
-</div>
+</div> {% endcomment %}
 
+
+<div class="body-content outer-top-xs">
+    <div class="container">
+      <div class="row ">
+        <div class="shopping-cart">
+          <div class="shopping-cart-table ">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="cart-description item">Image</th>
+                    <th class="cart-product-name item">Product Name</th>
+                    <th class="cart-qty item">Quantity</th>
+                    <th class="cart-sub-total item">Price</th>
+                    <th class="cart-total last-item">total</th>
+                    <th class="cart-romove item">Remove</th>
+                  </tr>
+                </thead><!-- /thead -->
+
+                <tbody>
+                    <input type='hidden' id="count"  name="count" value="{{wishlist|length}}">
+                    {% for w in wishlist %}
+
+                        <tr>
+                            <td class="cart-image">
+                            <a class="entry-thumbnail" href="detail.html">
+                                <img src="{{w.product.image1.url}}" alt="">
+                            </a>
+                            </td>
+                            <td class="cart-product-name-info">
+                            <h4 class='cart-product-description'><a href="detail.html">{{w.product.name}}</a></h4>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                <div class="rating rateit-small"></div>
+                                </div>
+                                <div class="col-sm-12">
+                                <div class="reviews">
+                                    (06 Reviews)
+                                </div>
+                                </div>
+                            </div><!-- /.row -->
+                            <div class="cart-product-info">
+                                <span class="product-color">COLOR:<span>Blue</span></span>
+                            </div>
+                            </td>
+                            <td class="cart-product-quantity">
+                            <div class="quant-input">
+                                <div class="arrows">
+                                    <div class="arrow plus gradient">
+                                    <span class="ir"
+                                        ><i id="plus{{forloop.counter}}" class="icon fa fa-sort-asc"></i
+                                    ></span>
+                                    </div>
+                                    <div class="arrow minus gradient">
+                                    <span class="ir"
+                                        ><i id="minus{{forloop.counter}}" class="icon fa fa-sort-desc"></i
+                                    ></span>
+                                    </div>
+                                </div>
+                                <input id="num{{forloop.counter}}" type="text" value="1" />
+                                </div>
+                                {% comment %} <input type='hidden'  name="number" id="number" value="1"> {% endcomment %}
+                            </td>
+                            <td class="cart-product-sub-total" style="display:flex;margin-top:30px;"><span>Rs.</span><span id="price{{forloop.counter}}" class="cart-sub-total-price">{{w.product.price}}</span></td>
+                            <td class="cart-product-grand-total"><span id="alltotal{{forloop.counter}}" class="cart-grand-total-price"></span></td>
+                            <td class="romove-item"><a href="#" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody><!-- /tbody -->
+              </table><!-- /table -->
+            </div>
+          </div><!-- /.shopping-cart-table -->
+
+          <div class="col-md-4 col-sm-12 cart-shopping-total">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    <div class="cart-sub-total">
+                      Quantity<span class="inner-left-md" id="items"></span>
+                    </div>
+                    <div class="cart-grand-total">
+                      Total<span class="inner-left-md" id="alltotal"></span>
+                    </div>
+                  </th>
+                </tr>
+              </thead><!-- /thead -->
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="cart-checkout-btn pull-right">
+                      <a href="cart-form.html">
+                      <button type="submit" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</button>
+
+                      </a>
+                      <span class="">Checkout with multiples address!</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody><!-- /tbody -->
+            </table><!-- /table -->
+          </div><!-- /.cart-shopping-total -->
+        </div><!-- /.shopping-cart -->
+      </div> <!-- /.row -->
+    </div><!-- /.container -->
+  </div><!-- /.body-content -->
+
+
+{% endblock %}
+
+
+{% block jscontents %}
+<script>
+
+    var count = $('#count').val()                                    
+    var items = 0
+    var temp_items = 0
+    var total = 0
+    var temp_total = 0
+    for (var i=1;i<=count;i++){
+        var name = '#num'+i
+        var price = '#price'+i
+        var show_total = '#alltotal'+i
+        items += parseInt($(name).val())
+        temp_items = parseInt($(name).val())
+        price = parseInt($(price).text())
+        total += temp_items * price                           
+        temp_total = temp_items * price                           
+        temp_total = "Rs."+temp_total      
+        $(show_total).text(temp_total) 
+    }  
+    total = "Rs."+total      
+    //$('#items').text(items)          
+    $('#alltotal').text(total)          
+    {% comment %} $('#alltotal1').text(total)  {% endcomment %}
+
+
+  $(document).ready(function(){
+
+    {% for j in wishlist %}
+    
+        var plus{{forloop.counter}} = '#plus'+{{forloop.counter}}
+        var minus{{forloop.counter}} = '#minus'+{{forloop.counter}}
+        var num{{forloop.counter}} = '#num'+{{forloop.counter}}
+
+    $(plus{{forloop.counter}}).click(function(){ 
+        var i = $(num{{forloop.counter}}).val()
+        var i = parseInt(i) + 1 ;
+        $(num{{forloop.counter}}).val(i)
+
+        var count = $('#count').val()                                    
+        var items = 0
+        var temp_items = 0
+        var total = 0
+        var temp_total = 0
+        for (var i=1;i<=count;i++){
+            var name = '#num'+i
+            var price = '#price'+i
+            var show_total = '#alltotal'+i
+            items += parseInt($(name).val())
+            temp_items = parseInt($(name).val())
+            price = parseInt($(price).text())
+            total += temp_items * price                           
+            temp_total = temp_items * price                           
+            temp_total = "Rs."+temp_total      
+            $(show_total).text(temp_total) 
+        }  
+        total = "Rs."+total      
+        //$('#items').text(items)          
+        $('#alltotal').text(total)          
+        {% comment %} $('#alltotal1').text(total)  {% endcomment %}
+    
+
+    });
+
+    $(num{{forloop.counter}}).keyup(function(){
+        var i = $({{forloop.counter}}).val()
+       // $('#number').val(i)
+       var count = $('#count').val()                                    
+        var items = 0
+        var temp_items = 0
+        var total = 0
+        var temp_total = 0
+        for (var i=1;i<=count;i++){
+            var name = '#num'+i
+            var price = '#price'+i
+            var show_total = '#alltotal'+i
+            items += parseInt($(name).val())
+            temp_items = parseInt($(name).val())
+            price = parseInt($(price).text())
+            total += temp_items * price                           
+            temp_total = temp_items * price                           
+            temp_total = "Rs."+temp_total      
+            $(show_total).text(temp_total) 
+        }  
+        total = "Rs."+total      
+        //$('#items').text(items)          
+        $('#alltotal').text(total)          
+        {% comment %} $('#alltotal1').text(total)  {% endcomment %}
+    });
+
+    $(minus{{forloop.counter}}).click(function(){  
+        var i = $(num{{forloop.counter}}).val()
+        if (i != 1){
+        var i = parseInt(i) - 1 ;
+        $(num{{forloop.counter}}).val(i)
+        }
+
+        var count = $('#count').val()                                    
+        var items = 0
+        var temp_items = 0
+        var total = 0
+        var temp_total = 0
+        for (var i=1;i<=count;i++){
+            var name = '#num'+i
+            var price = '#price'+i
+            var show_total = '#alltotal'+i
+            items += parseInt($(name).val())
+            temp_items = parseInt($(name).val())
+            price = parseInt($(price).text())
+            total += temp_items * price                           
+            temp_total = temp_items * price                           
+            temp_total = "Rs."+temp_total      
+            $(show_total).text(temp_total) 
+        }  
+        total = "Rs."+total      
+        //$('#items').text(items)          
+        $('#alltotal').text(total)          
+        {% comment %} $('#alltotal1').text(total)  {% endcomment %}
+    
+
+    });
+
+    {% endfor %}
+
+    
+    
+
+  });
+</script> 
 
 {% endblock %}

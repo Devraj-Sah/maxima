@@ -47,6 +47,8 @@ def CategoryAction(request,page_type,page_detail,c_id=None):
             data = {'menus':menus,'global_data':global_data,'all_product':all_product,'product':product,'about':about,'customers':customers,'Categories':Categories,
                     'team':'team','page_detail':page_detail,'blog':blog, 'c_id':c_id, 'wishvalue':'wishvalue', 'cartvalue':cartvalue
                 }
+            if page_type == 'product':
+                data['page'] = "product"
             return render(request,'main/'+page_type+'.html',data)
 
       

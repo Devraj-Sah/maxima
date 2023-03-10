@@ -1,6 +1,18 @@
 {% extends 'layout/master.html' %}
 {% block contents %}
-{% load mathfilters %}    
+{% load mathfilters %}  
+<div class="breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-inner">
+        <ul class="list-inline list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li class='active'>Wishlist</li>
+        </ul>
+      </div><!-- /.breadcrumb-inner -->
+    </div><!-- /.container -->
+  </div><!-- /.breadcrumb -->
+
+{% comment %} 
     <div class="container WishList mt-5">
         <div class="text-center WishListTitle">Your Wish List</div>
         <div class="row">
@@ -50,7 +62,61 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
 
+    <div class="body-content">
+        <div class="container">
+          <div class="my-wishlist-page">
+            <div class="row">
+              <div class="col-md-12 my-wishlist">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th colspan="4" class="heading-title">My Wishlist</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for w in wishlist %}
+                            <tr>
+                                <td class="col-md-2 col-sm-6 col-xs-6"><img src="{{w.product.image1.url}}" alt="imga"></td>
+                                <td class="col-md-7 col-sm-6 col-xs-6">
+                                <div class="product-name"><a href="#">{{w.product.name}}</a></div>
+                                <div class="rating">
+                                    <i class="fa fa-star rate"></i>
+                                    <i class="fa fa-star rate"></i>
+                                    <i class="fa fa-star rate"></i>
+                                    <i class="fa fa-star rate"></i>
+                                    <i class="fa fa-star non-rate"></i>
+                                    <span class="review">( 06 Reviews )</span>
+                                </div>
+                                <div class="price">
+                                    Rs.{{ w.product.price|sub:w.product.discount }}
+                                    {% if w.product.discount != "0" %}
+                                    <span class="price-before-discount">Rs.{{ w.product.price }}</span>
+                                    {% endif %}
+                                </div>
+                                </td>
+                                <td class="col-md-2 ">
+                                <a href="{% url 'Cart' p_id=w.product.id c_id=c_id %}" class="btn-upper btn btn-primary">Add to cart</a>
+                                </td>
+                                <td class="col-md-1 close-btn">
+                                <a href="{% url 'WishListDelete' p_id=w.product.id pk=c_id next="wish" %}" class=""><i class="fa fa-times"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                      
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div><!-- /.row -->
+          </div><!-- /.sigin-in-->
+          <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+    
+          <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
+        </div><!-- /.container -->
+    </div> <br>
 {% endblock %}
 

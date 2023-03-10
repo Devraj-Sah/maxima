@@ -24,201 +24,31 @@
                         <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
                         <nav class="yamm megamenu-horizontal">
                           <ul class="nav">
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                  class="icon fa fa-smile" aria-hidden="true"></i>Neo's Specials!</a>
-                              <ul class="dropdown-menu mega-menu">
-                                <li class="yamm-content">
-                                  <div class="row">
-                                    <div class="col-sm-12 col-md-3">
-                                      <ul class="links list-unstyled">
-                                        <li><a href="brand.html">Gaming</a></li>
-                                        <li><a href="brand.html">Laptop Skins</a></li>
-                                        <li><a href="brand.html">Apple</a></li>
-                                        <li><a href="brand.html">Dell</a></li>
-                                        <li><a href="brand.html">Lenovo</a></li>
-                                        <li><a href="brand.html">Microsoft</a></li>
-                                        <li><a href="brand.html">Asus</a></li>
-                                        <li><a href="brand.html">Adapters</a></li>
-                                        <li><a href="brand.html">Batteries</a></li>
-                                        <li><a href="brand.html">Cooling Pads</a></li>
-                                      </ul>
+                            {% for categorie in Categories %}
+                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              {% comment %} <i class="icon fa fa-smile" aria-hidden="true"></i> {% endcomment %}
+                              {{ categorie.caption }}</a>
+                              {% if categorie.product.all %}
+                                <ul class="dropdown-menu mega-menu" style="min-width:0;" >
+                                  <li class="yamm-content">
+                                    <div class="row">
+                                      <div class="col-sm-12 col-md-3">
+                                        <ul class="links list-unstyled">
+                                          {% for products in categorie.product.all %}
+                                            <li><a href="/product-details/{{products.id}}">{{products.name}}</a></li>
+                                          {% endfor %}
+                                        </ul>
+                                      </div>
+                                      <!-- /.col -->
                                     </div>
-                                    <!-- /.col -->
-                                  </div>
-                                  <!-- /.row -->
-                                </li>
-                                <!-- /.yamm-content -->
-                              </ul>
+                                    <!-- /.row -->
+                                  </li>
+                                  <!-- /.yamm-content -->
+                                </ul>
+                              {% endif %}
                               <!-- /.dropdown-menu -->
                             </li>
-                            <!-- /.menu-item -->
-            
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                  class="fa fa-b"></i> Shop By
-                                Brand</a>
-                              <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                              <ul class="dropdown-menu mega-menu">
-                                <li class="yamm-content">
-                                  <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-lg-4">
-                                      <ul>
-                                        <li><a href="brand.html">Gaming</a></li>
-                                        <li><a href="brand.html">Laptop Skins</a></li>
-                                        <li><a href="brand.html">Apple</a></li>
-                                        <li><a href="brand.html">Dell</a></li>
-                                        <li><a href="brand.html">Lenovo</a></li>
-                                        <li><a href="brand.html">Microsoft</a></li>
-                                        <li><a href="brand.html">Asus</a></li>
-                                        <li><a href="brand.html">Adapters</a></li>
-                                        <li><a href="brand.html">Batteries</a></li>
-                                        <li><a href="brand.html">Cooling Pads</a></li>
-                                      </ul>
-                                    </div>
-                                    <div class="dropdown-banner-holder"> <a href="#"><img alt=""
-                                          src="assets/images/banners/banner-side.png" /></a> </div>
-                                  </div>
-                                  <!-- /.row -->
-                                </li>
-                                <!-- /.yamm-content -->
-                              </ul>
-                              <!-- /.dropdown-menu -->
-                              <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                            </li>
-                            <!-- /.menu-item -->
-            
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                  class="icon fa fa-laptop" aria-hidden="true"></i>Laptops $ Computers</a>
-                              <ul class="dropdown-menu mega-menu">
-                                <li class="yamm-content">
-                                  <div class="row">
-                                    <div class="col-sm-12 col-md-3">
-                                      <ul class="links list-unstyled">
-                                        <li><a href="brand.html">Gaming</a></li>
-                                        <li><a href="brand.html">Laptop Skins</a></li>
-                                        <li><a href="brand.html">Apple</a></li>
-                                        <li><a href="brand.html">Dell</a></li>
-                                        <li><a href="brand.html">Lenovo</a></li>
-                                        <li><a href="brand.html">Microsoft</a></li>
-                                        <li><a href="brand.html">Asus</a></li>
-                                        <li><a href="brand.html">Adapters</a></li>
-                                        <li><a href="brand.html">Batteries</a></li>
-                                        <li><a href="brand.html">Cooling Pads</a></li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <!-- /.row -->
-                                </li>
-                                <!-- /.yamm-content -->
-                              </ul>
-                              <!-- /.dropdown-menu -->
-                            </li>
-                            <!-- /.menu-item -->
-            
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                  class="icon fa fa-mobile"></i>Mobile | Tablets</a>
-                              <ul class="dropdown-menu mega-menu">
-                                <li class="yamm-content">
-                                  <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-lg-4">
-                                      <ul>
-                                        <li><a href="brand.html">Gaming</a></li>
-                                        <li><a href="brand.html">Laptop Skins</a></li>
-                                        <li><a href="brand.html">Apple</a></li>
-                                        <li><a href="brand.html">Dell</a></li>
-                                        <li><a href="brand.html">Lenovo</a></li>
-                                        <li><a href="brand.html">Microsoft</a></li>
-                                        <li><a href="brand.html">Asus</a></li>
-                                        <li><a href="brand.html">Adapters</a></li>
-                                        <li><a href="brand.html">Batteries</a></li>
-                                        <li><a href="brand.html">Cooling Pads</a></li>
-                                      </ul>
-                                    </div>
-            
-                                    <div class="dropdown-banner-holder"> <a href="#"><img alt=""
-                                          src="assets/images/banners/banner-side.png" /></a> </div>
-                                  </div>
-                                  <!-- /.row -->
-                                </li>
-                                <!-- /.yamm-content -->
-                              </ul>
-                              <!-- /.dropdown-menu -->
-                            </li>
-                            <!-- /.menu-item -->
-            
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                  class="icon fa fa-camera"></i>Camera</a>
-                              <ul class="dropdown-menu mega-menu">
-                                <li class="yamm-content">
-                                  <div class="row">
-                                    <div class="col-sm-12 col-md-3">
-                                      <ul class="links list-unstyled">
-                                        <li><a href="brand.html">Gaming</a></li>
-                                        <li><a href="brand.html">Laptop Skins</a></li>
-                                        <li><a href="brand.html">Apple</a></li>
-                                        <li><a href="brand.html">Dell</a></li>
-                                        <li><a href="brand.html">Lenovo</a></li>
-                                        <li><a href="brand.html">Microsoft</a></li>
-                                        <li><a href="brand.html">Asus</a></li>
-                                        <li><a href="brand.html">Adapters</a></li>
-                                        <li><a href="brand.html">Batteries</a></li>
-                                        <li><a href="brand.html">Cooling Pads</a></li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <!-- /.row -->
-                                </li>
-                                <!-- /.yamm-content -->
-                              </ul>
-                              <!-- /.dropdown-menu -->
-                            </li>
-                            <!-- /.menu-item -->
-            
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                  class="icon fa fa-headphones"></i>Audio | Headphones</a>
-                              <ul class="dropdown-menu mega-menu">
-                                <li class="yamm-content">
-                                  <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-lg-4">
-                                      <ul>
-                                        <li><a href="brand.html">Gaming</a></li>
-                                        <li><a href="brand.html">Laptop Skins</a></li>
-                                        <li><a href="brand.html">Apple</a></li>
-                                        <li><a href="brand.html">Dell</a></li>
-                                        <li><a href="brand.html">Lenovo</a></li>
-                                        <li><a href="brand.html">Microsoft</a></li>
-                                        <li><a href="brand.html">Asus</a></li>
-                                        <li><a href="brand.html">Adapters</a></li>
-                                        <li><a href="brand.html">Batteries</a></li>
-                                        <li><a href="brand.html">Cooling Pads</a></li>
-                                      </ul>
-                                    </div>
-                                    <div class="dropdown-banner-holder"> <a href="#"><img alt=""
-                                          src="assets/images/banners/banner-side.png" /></a> </div>
-                                  </div>
-                                  <!-- /.row -->
-                                </li>
-                                <!-- /.yamm-content -->
-                              </ul>
-                              <!-- /.dropdown-menu -->
-                            </li>
-                            <!-- /.menu-item -->
-            
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                  class="icon fa fa-video"></i>Video Conferering</a>
-                              <!-- /.dropdown-menu --> </li>
-                            <!-- /.menu-item -->
-            
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                  class="fa fa-watch-smart"></i>Fitness | Smart Wtach</a>
-                              <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                              <!-- /.dropdown-menu -->
-                              <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                            </li>
-                            <!-- /.menu-item -->
-            
-                            <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                  class="icon fa fa-envira"></i>Car Accessories</a>
-                              <!-- /.dropdown-menu --> </li>
+                            {% endfor %}
                             <!-- /.menu-item -->
             
                           </ul>
@@ -247,7 +77,7 @@
                                         <div class="accordion-inner">
                                         <ul>
                                             {% for i in cat.product.all %}
-                                                <li><a href="#">{{i.name}}</a></li>
+                                                <li><a href="/product-details/{{i.id}}">{{i.name}}</a></li>
                                             {% endfor %}
                                             
                                         </ul>
@@ -475,7 +305,7 @@
                                         <div class="product">
                                             <div class="product-image">
                                             <div class="image">
-                                                <a href="#">
+                                                <a href="/product-details/{{product1.id}}">
                                                 <img src="{{product1.image1.url}}" alt="">
                                                 <img src="{{product1.image2.url}}" alt="" class="hover-image">
                                                 </a>
@@ -487,7 +317,7 @@
                                             <!-- /.product-image -->
                 
                                             <div class="product-info text-left">
-                                            <h3 class="name"><a href="detail.html">{{product1.name}}</a></h3>
+                                            <h3 class="name"><a href="/product-details/{{product1.id}}">{{product1.name}}</a></h3>
                                             <div class="rating rateit-small"></div>
                                             <div class="description"></div>
                                             

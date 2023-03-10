@@ -115,7 +115,7 @@
                 <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
     
                 <div class="dropdown dropdown-cart">
-                  <a href="my-wishlist.html">
+                  <a href="{% url 'WishList' %}">
                     <div class="items-cart-inner">
                       <div class="fro-admin">
                         <i class="fa-regular fa-heart"></i>
@@ -125,7 +125,7 @@
                     </div>
     
                   </a>
-                  <a href="detail.html" class="dropdown-toggle lnk-cart">
+                  <a href="{% url 'Cart' %}" class="dropdown-toggle lnk-cart">
                     <div class="items-cart-inner">
                       <div class="basket">
                         <i class="fa-solid fa-cart-arrow-down"></i>
@@ -169,39 +169,163 @@
                     <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
                       <div class="nav-outer">
                         <ul class="nav navbar-nav">
-                          {% comment %} <li class="active dropdown"> <a href="/">Home</a> </li> {% endcomment %}
 
-                          {% comment %} <li class=" dropdown"> <a href="about.html">Aboutt</a> </li> {% endcomment %}
-                          {% comment %} <li class=" dropdown"> <a href="category.html">New Arrivals</a> </li>
-                          <li class=" dropdown"> <a href="about.html">Service Center</a> </li> {% endcomment %}
-                          {% comment %} <li class=" dropdown"> <a href="category.html"><i class="fa-regular fa-star"></i>New Arrivals</a> </li>
-                          <li class=" dropdown"> <a href="about.html"><i class="fa-solid fa-gears"></i>Service Center</a> </li>
-     {% endcomment %}
-    
-                            {%for menu in menus %}
-                                <li class="nav-item">
-                                    <a href="/{%if menu.page_type != "group" %}{{menu.name}}{%else%}#{%endif%}" class="nav-link">
-                                      {% if menu.page_type == "product"  %}
-                                      <i class="fa-regular fa-star"></i>
-                                      {% endif %}
-                                      {% if menu.page_type == "normal"  %}
-                                      <i class="fa-solid fa-gears"></i>
-                                      {% endif %}
-                                        {{menu.caption}}
-                                    </a>
-                                    {% comment %} <ul class="dropdown-menu" 
-                                    {% if menu.childs.all %}
-                                    style="height: 250px;overflow: auto;"
-                                    {% endif %}
-                                    >
-                                        {% for submenu in menu.childs.all %}
-                                            <li class="nav-item">
-                                                <a href="/{{menu.name}}/{{submenu.name}}" class="nav-link">{{submenu.caption}}</a>
+                          {% if not page %}
+                          <li class="active dropdown"> <a href="#" class="dropdown-toggle"
+                            data-toggle="dropdown"><i
+                                class="fa-solid fa-list"></i>Categories</a>
+                            <ul class="dropdown-menu pages">
+                                <li>
+                                    <div class="yamm-content">
+
+                                        <ul class="links">
+                                            <li class="sub-drop-down">
+                                                <a href=""><i class="icon fa fa-smile"
+                                                        aria-hidden="true"></i>Maxima'sSpecials!</a>
+                                                <div class="dropdown-options">
+                                                    <a href="brand.html">Gaming</a>
+                                                    <a href="brand.html">Laptop Skins</a>
+                                                    <a href="brand.html">Apple</a>
+                                                    <a href="brand.html">Dell</a>
+                                                    <a href="brand.html">Lenovo</a>
+                                                    <a href="brand.html">Microsoft</a>
+                                                    <a href="brand.html">Asus</a>
+                                                    <a href="brand.html">Adapters</a>
+                                                    <a href="brand.html">Batteries</a>
+                                                    <a href="brand.html">Cooling Pads</a>
+                                                </div>
                                             </li>
-                                        {% endfor %}
-                                    </ul> {% endcomment %}
+                                            <li class="sub-drop-down">
+                                                <a href=""><i class="fa fa-b"></i> Shop By
+                                                    Brandy</a>
+                                                <div class="dropdown-options">
+                                                    <a href="brand.html">Apple</a>
+                                                    <a href="brand.html">Dell</a>
+                                                    <a href="brand.html">Lenovo</a>
+                                                    <a href="brand.html">Microsoft</a>
+                                                    <a href="brand.html">Asus</a>
+                                                    <a href="brand.html">Adapters</a>
+                                                    <a href="brand.html">Batteries</a>
+                                                    <a href="brand.html">Cooling Pads</a>
+                                                </div>
+                                            </li>
+                                            <li class="sub-drop-down">
+                                                <a href=""><i class="icon fa fa-laptop"
+                                                        aria-hidden="true"></i> Laptops
+                                                    $Computers</a>
+                                                <div class="dropdown-options">
+                                                    <a href="brand.html">Dell</a>
+                                                    <a href="brand.html">Lenovo</a>
+                                                    <a href="brand.html">Microsoft</a>
+                                                    <a href="brand.html">Asus</a>
+                                                    <a href="brand.html">Adapters</a>
+                                                    <a href="brand.html">Batteries</a>
+                                                    <a href="brand.html">Cooling Pads</a>
+                                                </div>
+                                            </li>
+                                            <li class="sub-drop-down">
+                                                <a href=""><i class="icon fa fa-mobile"></i>
+                                                    Mobile | Tablets</a>
+                                                <div class="dropdown-options">
+                                                    <a href="brand.html">Lenovo</a>
+                                                    <a href="brand.html">Microsoft</a>
+                                                    <a href="brand.html">Asus</a>
+                                                    <a href="brand.html">Adapters</a>
+                                                    <a href="brand.html">Batteries</a>
+                                                    <a href="brand.html">Cooling Pads</a>
+                                                </div>
+                                            </li>
+                                            <li class="sub-drop-down">
+                                                <a href=""><i
+                                                        class="icon fa fa-camera"></i>Camera</a>
+                                                <div class="dropdown-options">
+                                                    <a href="brand.html">Microsoft</a>
+                                                    <a href="brand.html">Asus</a>
+                                                    <a href="brand.html">Adapters</a>
+                                                    <a href="brand.html">Batteries</a>
+                                                    <a href="brand.html">Cooling Pads</a>
+                                                </div>
+                                            </li>
+                                            <li class="sub-drop-down">
+                                                <a href=""><i
+                                                        class="icon fa fa-headphones"></i>Audio
+                                                    | Headphones</a>
+                                                <div class="dropdown-options">
+                                                    <a href="brand.html">Asus</a>
+                                                    <a href="brand.html">Adapters</a>
+                                                    <a href="brand.html">Batteries</a>
+                                                    <a href="brand.html">Cooling Pads</a>
+                                                </div>
+                                            </li>
+                                            <li class="sub-drop-down">
+                                                <a href=""><i class="icon fa fa-video"></i>Video
+                                                    Conferering</a>
+                                                <div class="dropdown-options">
+                                                    <a href="brand.html">Microsoft</a>
+                                                    <a href="brand.html">Asus</a>
+                                                    <a href="brand.html">Adapters</a>
+                                                    <a href="brand.html">Batteries</a>
+                                                    <a href="brand.html">Cooling Pads</a>
+                                                </div>
+                                            </li>
+                                            <li class="sub-drop-down">
+                                                <a href=""><i class="fa fa-watch-smart"></i>Fitness
+                                                    | Smart Wtach</a>
+                                                <div class="dropdown-options">
+                                                    <a href="brand.html">Microsoft</a>
+                                                    <a href="brand.html">Asus</a>
+                                                    <a href="brand.html">Adapters</a>
+                                                    <a href="brand.html">Batteries</a>
+                                                    <a href="brand.html">Cooling Pads</a>
+                                                </div>
+                                            </li>
+                                            <li class="sub-drop-down">
+                                                <a href=""><i class="icon fa fa-envira"></i>Car
+                                                    AccessoriesSign In</a>
+                                                <div class="dropdown-options">
+                                                    <a href="brand.html">Dell</a>
+                                                    <a href="brand.html">Lenovo</a>
+                                                    <a href="brand.html">Microsoft</a>
+                                                    <a href="brand.html">Asus</a>
+                                                    <a href="brand.html">Adapters</a>
+                                                    <a href="brand.html">Batteries</a>
+                                                    <a href="brand.html">Cooling Pads</a>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </div>
                                 </li>
-                            {% endfor %}
+                            </ul>
+                          </li>
+
+                          {% endif %}
+                          {%for menu in menus %}
+                            {%if menu.page_type != "group" %}
+                            <li class="nav-item">
+                              <a href="/{%if menu.page_type != "group" %}{{menu.name}}{%else%}#{%endif%}" class="nav-link">
+                                {% if menu.page_type == "product"  %}
+                                <i class="fa-regular fa-star"></i>
+                                {% endif %}
+                                {% if menu.page_type == "normal"  %}
+                                <i class="fa-solid fa-gears"></i>
+                                {% endif %}
+                                  {{menu.caption}}
+                              </a>
+                              {% comment %} <ul class="dropdown-menu" 
+                              {% if menu.childs.all %}
+                              style="height: 250px;overflow: auto;"
+                              {% endif %}
+                              >
+                                  {% for submenu in menu.childs.all %}
+                                      <li class="nav-item">
+                                          <a href="/{{menu.name}}/{{submenu.name}}" class="nav-link">{{submenu.caption}}</a>
+                                      </li>
+                                  {% endfor %}
+                              </ul> {% endcomment %}
+                            </li>
+                            {% endif %}
+                          {% endfor %}
     
                           <li class="dropdown  navbar-right special-menu"> <a href="#">Get 30% off on
                               selected items</a> </li>
