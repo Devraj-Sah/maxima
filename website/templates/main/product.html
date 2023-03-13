@@ -333,13 +333,13 @@
                                             <div class="action">
                                                 <ul class="list-unstyled">
                                                 <li class="add-cart-button btn-group">
-                                                    <a href="detail.html">
+                                                    <a href="{% url 'Cart' p_id=product1.id c_id=c_id %}">
                                                     <button data-toggle="tooltip" class="btn btn-primary icon" type="button"
                                                         title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
                                                     </a>
                                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                                 </li>
-                                                <li class="lnk wishlist"> <a class="add-to-cart" href="my-wishlist.html"
+                                                <li class="lnk wishlist"> <a class="add-to-cart" href="{% url "WishList" p_id=product1.id %}"
                                                     title="Wishlist">
                                                     <i class="icon fa fa-heart"></i> </a> </li>
                                                 <li class="lnk"> <a class="add-to-cart" href="#" title="link"> <i
@@ -399,13 +399,13 @@
                                                     <div class="action">
                                                     <ul class="list-unstyled">
                                                         <li class="add-cart-button btn-group">
-                                                        <a href="detail.html">
+                                                        <a href="{% url 'Cart' p_id=product1.id c_id=c_id %}">
                                                             <button data-toggle="tooltip" class="btn btn-primary icon" type="button"
                                                             title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
                                                         </a>
                                                         <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                                         </li>
-                                                        <li class="lnk wishlist"> <a class="add-to-cart" href="my-wishlist.html"
+                                                        <li class="lnk wishlist"> <a class="add-to-cart" href="{% url "WishList" p_id=product1.id %}"
                                                             title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
                                                         <li class="lnk"> <a class="add-to-cart" href="#" title="link"> <i
                                                             class="fa fa-link"></i> </a> </li>

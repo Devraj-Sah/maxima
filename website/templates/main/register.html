@@ -7,52 +7,99 @@
 
         <div class=" registerPage">
 
-            <div class="registerFrom">
+            <div class="registerFrom" style="width:60%;">
             <form class="" method="post" action="{%url 'user_register'%}">
                 {% csrf_token %}
                 <h2 class="registerTitle">Royal Family Collection</h2>
                 <div class=" registerFormContainer">
                     <h4>Create An Account</h4>
-                    
-                    <div class="inputBoxLogin">
-                        <input label="First Name" name="first_name" type="text" placeholder="Full Name" />
-                    </div>
+                        <div class="row">
+                            
+                            <div class=" col-md-6 col-12" >
+                                <div class="inputBoxLogin">
+                                    <input label="First Name" name="first_name" type="text" placeholder="Full Name" />
+                                </div>
+                            </div>
 
-                    <div class="inputBoxLogin">
-                        <input label="Last Name" name="last_name" type="text" placeholder="User Name" />
-                    </div>
+                            <div class="col-md-6 col-12" >
 
-                    <div class="inputBoxLogin">
-                        <input label="Permant Address" name="permanent_address" type="text" placeholder="Permant Address" />
-                    </div>
+                                <div class="inputBoxLogin">
+                                    <input label="Last Name" name="last_name" type="text" placeholder="User Name" />
+                                </div>
 
-                    <div class="inputBoxLogin">
-                        <input label="Current Address" name="current_address" type="text" placeholder="Current Address" />
-                    </div>
-                    
+                            </div>
 
-                    <div class="inputBoxLogin">
-                        <input label="Email" name="email" type="email" placeholder="a@gmail.com" />
-                    </div>
+                        </div>
+                        <div class="row">
+                            
+                            <div class=" col-md-6 col-12" >
+                                <div class="inputBoxLogin">
+                                    <input label="Permant Address" name="permanent_address" type="text" placeholder="Permant Address" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12" >
+
+                                <div class="inputBoxLogin">
+                                    <input label="Current Address" name="current_address" type="text" placeholder="Current Address" />
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            
+                            <div class=" col-md-6 col-12" >
+                                <div class="inputBoxLogin">
+                                    <input label="Email" name="email" type="email" placeholder="a@gmail.com" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12" >
+
+                                <div class="inputBoxLogin">
+                                    <input label="Contact no." name="number" type="text"
+                                        placeholder="98********" />
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            
+                            <div class=" col-md-6 col-12" >
+                                <div class="inputBoxLogin">
+                                    <input label="Password" name="password" type="password"
+                                        placeholder="password" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12" >
+
+                                <div class="inputBoxLogin">
+                                    <input label="Confirm Password" name="cpassword" type="password"
+                                        placeholder="confirm password" />
+                                </div>
+
+                            </div>
+
+                        </div>          
+
                    
-                    <div class="inputBoxLogin">
-                        <input label="Contact no." name="number" type="text"
-                            placeholder="98********" />
-                    </div>
+                        
+
+                       
+                    
+                       
+                    
+    
+                    
                    
-                    <div class="inputBoxLogin">
-                        <input label="Password" name="password" type="password"
-                            placeholder="password" />
-                    </div>
-                  
-                    <div class="inputBoxLogin">
-                        <input label="Confirm Password" name="cpassword" type="password"
-                            placeholder="confirm password" />
-                    </div>
-                    <div class="inputBoxLogin">
-                     
-                        <button type="submit">Continue</button>
-                    </div>
+                        <div class="inputBoxLogin">
+                        
+                            <button type="submit">Continue</button>
+                        </div>
                 </div>
                 <p>
                     Already have an account ?

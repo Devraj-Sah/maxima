@@ -62,13 +62,17 @@ def index(request):
 
         global_data = GlobalSettings.objects.first()
         data = {'page':"index",'global_data':global_data,'camera':camera,'door_phone':door_phone,'special_deals':special_deals,'deal_of_the_week':deal_of_the_week,'special_offer':special_offer,'best_price':best_price,'Categories':Categories,'page_number':page_number,'customers':customers,'clients':clients,'most_ordered':most_ordered,'contact_section':contact_section,'menus':menus,'blog':blog,'product':product,'sliders':sliders,'clientschild':clientschild,'pemplatechild':pemplatechild}
-        try:
-            c_id = request.COOKIES['c_id']
+        c_id = request.COOKIES['c_id']
+        if c_id:
             cartvalue = Wishlist.objects.filter(temp_id=c_id,ishere=False)
+            wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
             cartvalue = len(cartvalue)
+            wishvalue = len(wishvalue)
+            data['c_id'] = c_id
             data['cartvalue'] = cartvalue
+            data['wishvalue'] = wishvalue
             return render(request, 'index.html',data)
-        except:       
+        else:       
             rand_num = random.randint(100000,1000000)
             data['c_id'] = rand_num
             a = render(request, 'index.html',data)
@@ -122,14 +126,29 @@ def ProductDetail(request,id):
     related_product = Products.objects.filter(category_id=product.category_id,status=1).order_by('-updated_at')
     # print(product.category_id)
     global_data = GlobalSettings.objects.first()
-    data = {'product':product,'global_data':global_data,'customers':customers,'best_price':best_price,'menus':menus,'c_id':c_id,'related_product':related_product,'sizes':sizes,'colors':colors}
+
+    wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
+    cartvalue = Wishlist.objects.filter(temp_id=c_id,ishere=False)
+    wishvalue = len(wishvalue)
+    cartvalue = len(cartvalue)
+
+
+    data = {'product':product,'global_data':global_data,'customers':customers,'wishvalue':wishvalue, 'cartvalue':cartvalue, 'best_price':best_price,'menus':menus,'c_id':c_id,'related_product':related_product,'sizes':sizes,'colors':colors}
     return render(request, 'main/product-details.html',data)
 
 def BlogDetail(request,id):
+    try:
+        c_id = request.COOKIES['c_id']
+    except:
+        return redirect('website.index')
     menus = Navigation.objects.filter(parent_page_id=0,status=1).order_by('position')
     blog = Blog.objects.get(id=id) 
     global_data = GlobalSettings.objects.first()
-    data = {'blog_detail':blog,'global_data':global_data,'menus':menus}
+    wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
+    cartvalue = Wishlist.objects.filter(temp_id=c_id,ishere=False)
+    wishvalue = len(wishvalue)
+    cartvalue = len(cartvalue)
+    data = {'blog_detail':blog,'global_data':global_data,'menus':menus,'wishvalue':wishvalue, 'cartvalue':cartvalue }
     return render(request, 'main/normal.html',data)
 
 def WishList(request, p_id=None ,c_id=None):
@@ -159,11 +178,11 @@ def WishList(request, p_id=None ,c_id=None):
     menus = Navigation.objects.filter(parent_page_id=0,status=1).order_by('position')
     wishlist = Wishlist.objects.filter(temp_id=c_id,ishere=True)
     global_data = GlobalSettings.objects.first()
-    data = {'menus':menus,'global_data':global_data ,'wishlist':wishlist,'c_id':c_id}
     wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
     cartvalue = Wishlist.objects.filter(temp_id=c_id,ishere=False)
     data['wishvalue'] = len(wishvalue)
     data['cartvalue'] = len(cartvalue)
+    data = {'menus':menus,'global_data':global_data ,'wishlist':wishlist,'c_id':c_id,}
     return render(request, 'main/wish-list.html', data)
 
 def Cart(request, p_id=None ,c_id=None):

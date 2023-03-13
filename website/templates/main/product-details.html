@@ -97,7 +97,7 @@
                           </a>
                         </button>
                         <button class="btn btn-primary cart-btn" type="button">
-                          <a href="shopping-cart.html">Add to cart</a>
+                          <a href="{% url 'Cart' p_id=best_prod.id c_id=c_id %}">Add to cart</a>
                         </button>
                       </div>
                     </div>
@@ -375,7 +375,7 @@
                           data-toggle="tooltip"
                           data-placement="right"
                           title="Add To Wishlist"
-                          href="#"
+                          href="{% url "WishList" p_id=product.id %}"
                         >
                           <i class="fa fa-heart"></i>
                         </a>
@@ -436,7 +436,7 @@
                                     
 
                     <div class="add-btn">
-                      <a href="shopping-cart.html" class="btn btn-primary"
+                      <a href="{% url 'Cart' p_id=product.id c_id=c_id %}" class="btn btn-primary"
                         ><i class="fa fa-shopping-cart inner-right-vs"></i> ADD
                         TO CART</a
                       >
@@ -687,7 +687,7 @@
                         <div class="action">
                           <ul class="list-unstyled">
                             <li class="add-cart-button btn-group">
-                              <a href="detail.html">
+                              <a href="{% url 'Cart' p_id=r_product.id c_id=c_id %}">
                                 <button
                                   data-toggle="tooltip"
                                   class="btn btn-primary icon"
@@ -708,7 +708,7 @@
                             <li class="lnk wishlist">
                               <a
                                 class="add-to-cart"
-                                href="my-wishlist.html"
+                                href="{% url "WishList" p_id=r_product.id %}"
                                 title="Wishlist"
                               >
                                 <i class="icon fa fa-heart"></i>

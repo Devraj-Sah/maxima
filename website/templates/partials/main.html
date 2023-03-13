@@ -101,12 +101,12 @@
                       <div class="action">
                         <div class="add-cart-button btn-group">
                           <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                            <a href="#">
+                            <a href="{% url 'Cart' p_id=best_prod.id c_id=c_id %}">
                               <i class="fa fa-shopping-cart"></i>
                             </a>
 
                           </button>
-                          <button class="btn btn-primary cart-btn" type="button"><a href="#">Add to
+                          <button class="btn btn-primary cart-btn" type="button"><a href="{% url 'Cart' p_id=best_prod.id c_id=c_id %}">Add to
                               cart</a>
                           </button>
                         </div>
@@ -353,7 +353,7 @@
                               <div class="action">
                                 <ul class="list-unstyled">
                                   <li class="add-cart-button btn-group">
-                                    <a href="detail.html">
+                                    <a href="{% url 'Cart' p_id=prod.id c_id=c_id %}">
                                       <button data-toggle="tooltip" class="btn btn-primary icon" type="button"
                                         title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
                                     </a>
@@ -1190,14 +1190,14 @@
                               <div class="action">
                                 <ul class="list-unstyled">
                                   <li class="add-cart-button btn-group">
-                                    <a href="detail.html">
+                                    <a href="{% url 'Cart' p_id=cam.id c_id=c_id %}">
                                       <button data-toggle="tooltip" class="btn btn-primary icon" type="button"
                                         title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
                                     </a>
                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                   </li>
                                   <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart"
-                                      href="my-wishlist.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a>
+                                      href="{% url "WishList" p_id=cam.id %}" title="Wishlist"> <i class="icon fa fa-heart"></i> </a>
                                   </li>
                                   <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="#" title="link">
                                       <i class="fa fa-link" aria-hidden="true"></i> </a> </li>
@@ -1274,14 +1274,14 @@
                               <div class="action">
                                 <ul class="list-unstyled">
                                   <li class="add-cart-button btn-group">
-                                    <a href="detail.html">
+                                    <a href="{% url 'Cart' p_id=dp.id c_id=c_id %}">
                                       <button data-toggle="tooltip" class="btn btn-primary icon" type="button"
                                         title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
                                     </a>
                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                   </li>
                                   <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart"
-                                      href="my-wishlist.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a>
+                                      href="{% url "WishList" p_id=dp.id %}" title="Wishlist"> <i class="icon fa fa-heart"></i> </a>
                                   </li>
                                   <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="#" title="link">
                                       <i class="fa fa-link" aria-hidden="true"></i> </a> </li>
@@ -1358,14 +1358,14 @@
                               <div class="action">
                                 <ul class="list-unstyled">
                                   <li class="add-cart-button btn-group">
-                                    <a href="detail.html">
+                                    <a href="{% url 'Cart' p_id=mo.id c_id=c_id %}">
                                       <button data-toggle="tooltip" class="btn btn-primary icon" type="button"
                                         title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
                                     </a>
                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                   </li>
                                   <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart"
-                                      href="my-wishlist.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a>
+                                      href="{% url "WishList" p_id=mo.id %}" title="Wishlist"> <i class="icon fa fa-heart"></i> </a>
                                   </li>
                                   <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="#" title="link">
                                       <i class="fa fa-link" aria-hidden="true"></i> </a> </li>

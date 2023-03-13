@@ -319,6 +319,7 @@
         var minus{{forloop.counter}} = '#minus'+{{forloop.counter}}
         var num{{forloop.counter}} = '#num'+{{forloop.counter}}
 
+
     $(plus{{forloop.counter}}).click(function(){ 
         var i = $(num{{forloop.counter}}).val()
         var i = parseInt(i) + 1 ;
@@ -350,9 +351,8 @@
     });
 
     $(num{{forloop.counter}}).keyup(function(){
-        var i = $({{forloop.counter}}).val()
-       // $('#number').val(i)
-       var count = $('#count').val()                                    
+        var i = $(num{{forloop.counter}}).val()
+        var count = $('#count').val()                                    
         var items = 0
         var temp_items = 0
         var total = 0
@@ -370,7 +370,6 @@
             $(show_total).text(temp_total) 
         }  
         total = "Rs."+total      
-        //$('#items').text(items)          
         $('#alltotal').text(total)          
         {% comment %} $('#alltotal1').text(total)  {% endcomment %}
     });

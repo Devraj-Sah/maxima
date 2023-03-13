@@ -1,6 +1,17 @@
 {% extends 'layout/master.html' %}
 {% block contents %}
-
+    <!-- main top bar -->
+    <div class="breadcrumb">
+        <div class="container">
+          <div class="breadcrumb-inner">
+            <ul class="list-inline list-unstyled">
+              <li><a href="/">Home</a></li>
+              <li class='active'>Checkout</li>
+            </ul>
+          </div><!-- /.breadcrumb-inner -->
+        </div><!-- /.container -->
+      </div><!-- /.breadcrumb -->
+    
     <!-- checkout box -->
 
     {% comment %} <div class="container mt-5">
@@ -8,7 +19,7 @@
             <div class="shippingUserData">
 
                 <div class="shippingData">
-                    <h3>Old Address</h3>
+                    <h3> Address</h3>
 
                     <span>Shipping address: Kathmandu</span>
                     <br>
@@ -78,10 +89,11 @@
 
 
     <div class="container">
-        <div class="form-shopping">
-            <div class="apply-wrapper">
-                <form class="checkoutFrom" method="post" action="{% url "CheckOut"%}" >
-                    {% csrf_token %}                    
+        <div class="form-shopping" style="padding-top:0px">
+            <div class="apply-wrapper" >
+                <form class="checkoutFrom" style="box-shadow:none" method="post" action="{% url "CheckOut"%}" >
+                    {% csrf_token %}  
+                    <h3>To complete your checkout, please fill out the form accordingly</h3>                  
                     <div class=" row">
                         <div class="col-md-6 col-lg-6 col-12">
                             <div class="form-1">

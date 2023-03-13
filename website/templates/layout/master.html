@@ -119,7 +119,9 @@
                     <div class="items-cart-inner">
                       <div class="fro-admin">
                         <i class="fa-regular fa-heart"></i>
-    
+                        {% if wishvalue %}
+                        <span style="position:absolute;background-color:red;color:white;margin-left:-5px;" class="badge rounded-pill badge-notification bg-danger">{{wishvalue}}</span>
+                        {% endif %}
                       </div>
                       <span>Wish List</span>
                     </div>
@@ -129,6 +131,9 @@
                     <div class="items-cart-inner">
                       <div class="basket">
                         <i class="fa-solid fa-cart-arrow-down"></i>
+                        {% if cartvalue %}
+                        <span style="position:absolute;background-color:red;color:white;margin-left:-5px;" class="badge rounded-pill badge-notification bg-danger">{{cartvalue}}</span>
+                        {% endif %}
                       </div>
                       <span> My Cart</span>
                     </div>
@@ -137,7 +142,6 @@
                     <div class="items-cart-inner">
                       <div class="fro-admin">
                         <i class="fa fa-user"></i>
-    
                       </div>
                       <span>login</span>
                     </div>
@@ -171,6 +175,7 @@
                         <ul class="nav navbar-nav">
 
                           {% if not page %}
+                          
                           <li class="active dropdown"> <a href="#" class="dropdown-toggle"
                             data-toggle="dropdown"><i
                                 class="fa-solid fa-list"></i>Categories</a>
@@ -179,119 +184,21 @@
                                     <div class="yamm-content">
 
                                         <ul class="links">
+                                          {% for categorie in Categories %}
                                             <li class="sub-drop-down">
-                                                <a href=""><i class="icon fa fa-smile"
-                                                        aria-hidden="true"></i>Maxima'sSpecials!</a>
-                                                <div class="dropdown-options">
-                                                    <a href="brand.html">Gaming</a>
-                                                    <a href="brand.html">Laptop Skins</a>
-                                                    <a href="brand.html">Apple</a>
-                                                    <a href="brand.html">Dell</a>
-                                                    <a href="brand.html">Lenovo</a>
-                                                    <a href="brand.html">Microsoft</a>
-                                                    <a href="brand.html">Asus</a>
-                                                    <a href="brand.html">Adapters</a>
-                                                    <a href="brand.html">Batteries</a>
-                                                    <a href="brand.html">Cooling Pads</a>
-                                                </div>
+                                                <a href="">
+                                                  {% comment %} <i class="icon fa fa-smile" aria-hidden="true"></i> {% endcomment %}
+                                                  {{ categorie.caption }}
+                                                </a>
+                                                {% if categorie.product.all %}
+                                                  <div class="dropdown-options">
+                                                    {% for products in categorie.product.all %}
+                                                      <a href="/product-details/{{products.id}}">{{products.name}}</a>
+                                                    {% endfor %}
+                                                  </div>
+                                                {% endif %}
                                             </li>
-                                            <li class="sub-drop-down">
-                                                <a href=""><i class="fa fa-b"></i> Shop By
-                                                    Brandy</a>
-                                                <div class="dropdown-options">
-                                                    <a href="brand.html">Apple</a>
-                                                    <a href="brand.html">Dell</a>
-                                                    <a href="brand.html">Lenovo</a>
-                                                    <a href="brand.html">Microsoft</a>
-                                                    <a href="brand.html">Asus</a>
-                                                    <a href="brand.html">Adapters</a>
-                                                    <a href="brand.html">Batteries</a>
-                                                    <a href="brand.html">Cooling Pads</a>
-                                                </div>
-                                            </li>
-                                            <li class="sub-drop-down">
-                                                <a href=""><i class="icon fa fa-laptop"
-                                                        aria-hidden="true"></i> Laptops
-                                                    $Computers</a>
-                                                <div class="dropdown-options">
-                                                    <a href="brand.html">Dell</a>
-                                                    <a href="brand.html">Lenovo</a>
-                                                    <a href="brand.html">Microsoft</a>
-                                                    <a href="brand.html">Asus</a>
-                                                    <a href="brand.html">Adapters</a>
-                                                    <a href="brand.html">Batteries</a>
-                                                    <a href="brand.html">Cooling Pads</a>
-                                                </div>
-                                            </li>
-                                            <li class="sub-drop-down">
-                                                <a href=""><i class="icon fa fa-mobile"></i>
-                                                    Mobile | Tablets</a>
-                                                <div class="dropdown-options">
-                                                    <a href="brand.html">Lenovo</a>
-                                                    <a href="brand.html">Microsoft</a>
-                                                    <a href="brand.html">Asus</a>
-                                                    <a href="brand.html">Adapters</a>
-                                                    <a href="brand.html">Batteries</a>
-                                                    <a href="brand.html">Cooling Pads</a>
-                                                </div>
-                                            </li>
-                                            <li class="sub-drop-down">
-                                                <a href=""><i
-                                                        class="icon fa fa-camera"></i>Camera</a>
-                                                <div class="dropdown-options">
-                                                    <a href="brand.html">Microsoft</a>
-                                                    <a href="brand.html">Asus</a>
-                                                    <a href="brand.html">Adapters</a>
-                                                    <a href="brand.html">Batteries</a>
-                                                    <a href="brand.html">Cooling Pads</a>
-                                                </div>
-                                            </li>
-                                            <li class="sub-drop-down">
-                                                <a href=""><i
-                                                        class="icon fa fa-headphones"></i>Audio
-                                                    | Headphones</a>
-                                                <div class="dropdown-options">
-                                                    <a href="brand.html">Asus</a>
-                                                    <a href="brand.html">Adapters</a>
-                                                    <a href="brand.html">Batteries</a>
-                                                    <a href="brand.html">Cooling Pads</a>
-                                                </div>
-                                            </li>
-                                            <li class="sub-drop-down">
-                                                <a href=""><i class="icon fa fa-video"></i>Video
-                                                    Conferering</a>
-                                                <div class="dropdown-options">
-                                                    <a href="brand.html">Microsoft</a>
-                                                    <a href="brand.html">Asus</a>
-                                                    <a href="brand.html">Adapters</a>
-                                                    <a href="brand.html">Batteries</a>
-                                                    <a href="brand.html">Cooling Pads</a>
-                                                </div>
-                                            </li>
-                                            <li class="sub-drop-down">
-                                                <a href=""><i class="fa fa-watch-smart"></i>Fitness
-                                                    | Smart Wtach</a>
-                                                <div class="dropdown-options">
-                                                    <a href="brand.html">Microsoft</a>
-                                                    <a href="brand.html">Asus</a>
-                                                    <a href="brand.html">Adapters</a>
-                                                    <a href="brand.html">Batteries</a>
-                                                    <a href="brand.html">Cooling Pads</a>
-                                                </div>
-                                            </li>
-                                            <li class="sub-drop-down">
-                                                <a href=""><i class="icon fa fa-envira"></i>Car
-                                                    AccessoriesSign In</a>
-                                                <div class="dropdown-options">
-                                                    <a href="brand.html">Dell</a>
-                                                    <a href="brand.html">Lenovo</a>
-                                                    <a href="brand.html">Microsoft</a>
-                                                    <a href="brand.html">Asus</a>
-                                                    <a href="brand.html">Adapters</a>
-                                                    <a href="brand.html">Batteries</a>
-                                                    <a href="brand.html">Cooling Pads</a>
-                                                </div>
-                                            </li>
+                                          {% endfor %}
                                         </ul>
 
                                     </div>

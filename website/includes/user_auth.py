@@ -35,10 +35,20 @@ def Login(request):
              return render(request , 'main/login.html')
             # No backend authenticated the credentials
             # return render(request , 'admin/authentication/login.html')
-    menus = Navigation.objects.filter(parent_page_id=0).order_by('position')
+    menus = Navigation.objects.filter(parent_page_id=0,status=1).order_by('position')
     blog = Blog.objects.filter(status=1)
     product = Products.objects.all()  
-    data = {'page':"index",'menus':menus,'blog':blog,'product':product}
+    global_data = GlobalSettings.objects.first()
+    try:
+        c_id = request.COOKIES['c_id']
+    except:
+        return redirect('website.index')
+    wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
+    cartvalue = Wishlist.objects.filter(temp_id=c_id,ishere=False)
+    wishvalue = len(wishvalue)
+    cartvalue = len(cartvalue)
+
+    data = {'menus':menus,'blog':blog,'product':product,'global_data':global_data,'wishvalue':wishvalue, 'cartvalue':cartvalue}
     return render(request , 'main/login.html',data)
 
 def SignUp(request,id=None):
@@ -53,17 +63,27 @@ def SignUp(request,id=None):
             "password" : make_password(request.POST['password']),
             "phone"    : request.POST['number'],
             "permanent_address" : request.POST['permanent_address'],            
+            "current_address" : request.POST['current_address'],            
         }       
         user,create = CustomUser.objects.update_or_create(id=id , defaults=data)#create customer account
-        user.role = user.User
+        user.role = user.USER
         user.save()
         login(request,user,backend='django.contrib.auth.backends.ModelBackend')
 
         return redirect('CheckOut')
-    menus = Navigation.objects.filter(parent_page_id=0).order_by('position')
+    menus = Navigation.objects.filter(parent_page_id=0,status=1).order_by('position')
     blog = Blog.objects.filter(status=1)
     product = Products.objects.all()  
-    data = {'page':"index",'menus':menus,'blog':blog,'product':product}
+    global_data = GlobalSettings.objects.first()
+    try:
+        c_id = request.COOKIES['c_id']
+    except:
+        return redirect('website.index')
+    wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
+    cartvalue = Wishlist.objects.filter(temp_id=c_id,ishere=False)
+    wishvalue = len(wishvalue)
+    cartvalue = len(cartvalue)
+    data = {'menus':menus,'blog':blog,'product':product,'global_data':global_data,'wishvalue':wishvalue, 'cartvalue':cartvalue}
     return render(request , 'main/register.html',data)
 
 

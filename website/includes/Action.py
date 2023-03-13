@@ -20,9 +20,9 @@ def CategoryAction(request,page_type,page_detail,c_id=None):
     # team = Team.objects.all()
     blog = Blog.objects.filter(status=1).order_by('-updated_at')[:6]
     global_data = GlobalSettings.objects.first()
-    # wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
+    wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
     cartvalue = Wishlist.objects.filter(temp_id=c_id,ishere=False)
-    # wishvalue = len(wishvalue)
+    wishvalue = len(wishvalue)
     cartvalue = len(cartvalue)
 
     product = None
@@ -45,7 +45,7 @@ def CategoryAction(request,page_type,page_detail,c_id=None):
             #     return HttpResponse("contact")
             # return HttpResponse(page_detail.name)
             data = {'menus':menus,'global_data':global_data,'all_product':all_product,'product':product,'about':about,'customers':customers,'Categories':Categories,
-                    'team':'team','page_detail':page_detail,'blog':blog, 'c_id':c_id, 'wishvalue':'wishvalue', 'cartvalue':cartvalue
+                    'team':'team','page_detail':page_detail,'blog':blog, 'c_id':c_id, 'wishvalue':wishvalue, 'cartvalue':cartvalue
                 }
             if page_type == 'product':
                 data['page'] = "product"
@@ -67,9 +67,9 @@ def SubcategoryAction(request,page_type,page_detail,c_id=None,submenu=None):
     # blog = Blog.objects.filter(status=1)
     global_data = GlobalSettings.objects.first()
 
-    # wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
+    wishvalue = Wishlist.objects.filter(temp_id=c_id,ishere=True)
     cartvalue = Wishlist.objects.filter(temp_id=c_id,ishere=False)
-    # wishvalue = len(wishvalue)
+    wishvalue = len(wishvalue)
     cartvalue = len(cartvalue)
 
     product = None
@@ -94,6 +94,6 @@ def SubcategoryAction(request,page_type,page_detail,c_id=None,submenu=None):
             #     return HttpResponse("contact")
 
             data = {'menus':menus,'global_data':global_data,'all_product':all_product,'product':product,
-                    'team':'team','page_detail':page_detail,'blog':'blog', 'c_id':c_id, 'wishvalue':'wishvalue', 'cartvalue':cartvalue
+                    'team':'team','page_detail':page_detail,'blog':'blog', 'c_id':c_id, 'wishvalue':wishvalue, 'cartvalue':cartvalue
                 } 
             return render(request,'main/'+page_type+'.html',data)
